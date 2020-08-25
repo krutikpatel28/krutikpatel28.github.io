@@ -1,0 +1,33 @@
+body{
+    background-color: black;
+    color: white;
+}
+.topspace{
+    padding-top: 10rem;
+}
+.intro_title h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 600%;
+}
+
+@media screen and (max-width: 500px) {
+    .intro_title  h1{
+      font-size: 300%;
+    }
+  }
+
+.icons{
+    padding-top: 5%;
+   
+}
+.icon_text{
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+.resume_btn{
+    background-color: black; 
+    border: none; 
+    border-radius: 0%;
+}
+
+
