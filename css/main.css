@@ -76,3 +76,15 @@ body{
     -webkit-text-fill-color: transparent;
 }
   
+.verti_bar{
+    position: fixed;
+    
+    -ms-flex-pack: justify;
+    transform: rotate(270deg);
+    float: right;
+    
+    margin-top: 10%;
+}
+.verti_item{
+    padding: 1%;
+}
