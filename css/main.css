@@ -1,6 +1,9 @@
+html{
+    scroll-behavior: smooth;
+}
 body{
-    background-color: black;
-    color: white;
+    background-color: black !important ; 
+    color: white !important;   
 }
 .topspace{
     padding-top: 10rem;
@@ -28,6 +31,7 @@ body{
     background-color: black; 
     border: none; 
     border-radius: 0%;
+    color: white;
 }
 .name{
     
@@ -88,3 +92,7 @@ body{
 .verti_item{
     padding: 1%;
 }
+
+
+  
+  
