@@ -348,15 +348,6 @@ a{
     -webkit-animation: move 5s infinite;
   }
   
-  p {
-    position: absolute;
-    top: -35px;
-    right: -85px;
-    text-transform: uppercase;
-    color: #347fc3;
-    font-family: helvetica, sans-serif;
-    font-weight: bold;
-  }
   
   @-webkit-keyframes move {
     0% {left: 0;}
