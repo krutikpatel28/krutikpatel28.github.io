@@ -196,5 +196,138 @@ a{
     margin-top: 8rem;
 }
 
-  
+.ftr-icn{
+    color: white;
+}
+.ftr-icn:hover i{
+    color: white;
+}
+
+.drib-ft{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    transition-duration: 0.3s;
+    border: solid;
+    border-color: black;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 black  inset;
+}
+.drib-ft:hover{
+    background-color: white;
+    color: #ea4c89;
+    border: solid;
+    border-color: white; 
+    box-shadow: 150px 0 0 white inset;
+    
+}
+
+.what-ft{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    transition-duration: 0.1s;
+    border: solid;
+    border-color: black;
+    
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 black  inset;
+}
+.what-ft:hover{
+    background-color: white;
+    color: #075E54;
+    border: solid;
+    border-color: white; 
+    box-shadow: 150px 0 0 white inset;
+    
+}
+.fb-ft{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    transition-duration: 0.1s;
+    border: solid;
+    border-color: black;
+    
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 black  inset;
+}
+.fb-ft:hover{
+    background-color: white;
+    color: #4267B2;
+    border: solid;
+    border-color: white; 
+    box-shadow: 150px 0 0 white inset;
+    
+}
+.ig-ft{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    transition-duration: 0.1s;
+    border: solid;
+    border-color: black;
+    
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 black  inset;
+}
+.ig-ft:hover{
+    background-color: white;
+    color: #C13584;
+    border: solid;
+    border-color: white; 
+    box-shadow: 150px 0 0 white inset;
+    
+}
+.bh-ft{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    transition-duration: 0.1s;
+    border: solid;
+    border-color: black;
+   
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 black  inset;
+}
+.bh-ft:hover{
+    background-color: white;
+    color: #053eff;
+    border: solid;
+    border-color: white; 
+    box-shadow: 150px 0 0 white inset;
+    
+}
+.ln-ft{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    transition-duration: 0.1s;
+    border: solid;
+    border-color: black;
+    
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 black  inset;
+}
+.ln-ft:hover{
+    background-color: white;
+    color: #0e76a8;
+    border: solid;
+    border-color: white; 
+    box-shadow: 150px 0 0 white inset;
+    
+}
 
