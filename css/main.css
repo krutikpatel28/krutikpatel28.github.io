@@ -3,19 +3,20 @@ html{
 }
 body{
     background-color: black !important ; 
-    color: white !important;   
+    color: white !important;
+    
 }
 .topspace{
-    padding-top: 10rem;
+    padding-top: 6rem;
 }
 .intro_title h1{
-    font-family: 'Poppins', sans-serif;
-    font-size: 600%;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 600% ;
 }
 
 @media screen and (max-width: 500px) {
     .intro_title  h1{
-      font-size: 300%;
+      font-size: 300% ;
     }
   }
 
@@ -355,3 +356,7 @@ a{
     75% {left: 100%; -webkit-transform: rotate(450deg); width: 150px; height: 150px;}
     100% {right: 100%;}
   } 
+
+
+
+ 
