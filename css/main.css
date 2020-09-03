@@ -19,7 +19,22 @@ body{
       font-size: 300% ;
     }
   }
-
+.section-line{
+    height: 2px; 
+    background-color: white;
+}
+.section-line-black{
+    height: 2px; 
+    background-color: black;
+}
+.section-line-thin{
+    height: 1px; 
+    background-color: white;
+}
+.sec-white{
+    background-color: white;
+    color: black;
+}
 .icons{
     padding-top: 5%;
    
