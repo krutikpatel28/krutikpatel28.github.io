@@ -10,15 +10,21 @@ a{
     text-decoration: none !important;
 }
 .topspace{
-    padding-top: 6rem;
+    margin-top: 0rem;
+    padding-top: 10rem;
 }
-.intro_title h1{
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 600% ;
+.intro_title h1  {
+    /* font-family: Raisonne; */
+    font-family: 'Poppins', sans-serif !important; 
+    font-size: 500% ;
 }
+
 @media screen and (max-width: 500px) {
     .intro_title  h1{
       font-size: 300% ;
+    }
+    .topspace{
+        margin-top: -1rem;
     }
   }
 .section-line{
