@@ -8,6 +8,21 @@ body{
 a{
     text-decoration: none !important;
 }
+@font-face {
+    font-family: signature;
+    src: url(../fonts/BrittanySignature-LjyZ.otf);
+}
+@font-face {
+    font-family: signature2;
+    src: url(../fonts/Autography-DOLnW.otf);
+}
+@font-face {
+    font-family: reco;
+    src: url(../fonts/Recoleta-RegularDEMO.otf);
+}
+.fancy{
+    font-family: 'Sacramento', cursive;
+}
 .topspace{
     margin-top: 0rem;
     padding-top: 15rem;
@@ -20,7 +35,7 @@ a{
 
 @media screen and (max-width: 500px) {
     .intro_title  h1{
-      font-size: 180% ;
+      font-size: 190% ;
     }
     .topspace{
         margin-top: -1rem;
@@ -32,6 +47,9 @@ a{
 }
 .section-line-black{
     height: 2px; 
+    background-color: black;
+}.section-line-black-thin{
+    height: 1px; 
     background-color: black;
 }
 .section-line-thin{
@@ -313,8 +331,15 @@ a{
     box-shadow: 150px 0 0 black inset;
 }
 
+/* 30d5c8 */
+.teal-highlight{
+    color: #008080;
+}
 
-
-
+.teal-bcg{
+    background-color: #008080;
+    color: white;
+    padding: 0px 8px 0px 8px;
+}
 
  
