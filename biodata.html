@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css.map">
     <link rel="stylesheet" href="css/bio.css">
+    <link rel="stylesheet" href="css/tinder.css">
+
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -49,6 +51,8 @@
     <!-- lottie -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
+    <!-- tinder -->
+    <script src="/js/tinder.js"></script>
     <!-- universal analytics -->
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -84,8 +88,64 @@
                     <br><br>
                 </div>
                 <div class="col-md-5">
-                    <img class="img-fluid rounded" src="images/kp1.jpg" alt="krutik patel">
+                    <img class="img-fluid rounded" src="images/cover.jpg" alt="krutik patel">
                     <br><br><br>
+
+                    <!-- tinder start -->
+                    <!-- <div class="tinder">
+                        <div class="tinder--status">
+                          <i class="fa fa-remove"></i>
+                          <i class="fa fa-heart"></i>
+                        </div>
+                      
+                        <div class="tinder--cards">
+                          <div class="tinder--card">
+                            <img src="https://placeimg.com/600/300/people">
+                            <h3>Demo card 1</h3>
+                            <p>This is a demo for Tinder like swipe cards</p>
+                          </div>
+                          <div class="tinder--card">
+                            <img src="https://placeimg.com/600/300/animals">
+                            <h3>Demo card 2</h3>
+                            <p>This is a demo for Tinder like swipe cards</p>
+                          </div>
+                          <div class="tinder--card">
+                            <img src="https://placeimg.com/600/300/nature">
+                            <h3>Demo card 3</h3>
+                            <p>This is a demo for Tinder like swipe cards</p>
+                          </div>
+                          <div class="tinder--card">
+                            <img src="https://placeimg.com/600/300/tech">
+                            <h3>Demo card 4</h3>
+                            <p>This is a demo for Tinder like swipe cards</p>
+                          </div>
+                          <div class="tinder--card">
+                            <img src="https://placeimg.com/600/300/arch">
+                            <h3>Demo card 5</h3>
+                            <p>This is a demo for Tinder like swipe cards</p>
+                          </div>
+                        </div>
+                      
+                        <div class="tinder--buttons">
+                          <button id="nope"><i class="fa fa-remove"></i></button>
+                          <button id="love"><i class="fa fa-heart"></i></button>
+                        </div>
+                    </div> -->
+                    <!-- tinder end -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 img-space">
+                    <img src="/images/mirror.jpg" alt="" srcset="" class="img-fluid rounded">
+                </div>
+                <div class="col-md-3 img-space">
+                    <img src="/images/gr.jpg" alt="" srcset="" class="img-fluid rounded">
+                </div>
+                <div class="col-md-3 img-space">
+                    <img src="/images/cam.jpg" alt="" srcset="" class="img-fluid rounded">
+                </div>
+                <div class="col-md-3 img-space">
+                    <img src="/images/m.jpg" alt="" srcset="" class="img-fluid rounded">
                 </div>
             </div>
         </div>
@@ -104,7 +164,7 @@
                     <br>
                     <div class="row">
                         <div class="col-3 col-md-2">
-                            <img src="./svg/001-profile-user.svg" alt="" class="img-fluid" width="90%">
+                            <img src="./svg/001-profile-user.svg" alt="" class="img-fluid" width="100%">
                         </div>
                         <div class="col-9 col-md-10">
                             <h3>Krutik Patel</h3>
@@ -219,6 +279,51 @@
                     </div>
                     <br>   
                 </div>
+                <div class="col-12 col-md-6">
+                    <hr class="section-line-black-thin">
+                    <br>
+                    <div class="row">
+                        <div class="col-3 col-md-2">
+                            <img src="./svg/008-suitcase.svg" alt="" class="img-fluid" width="90%">
+                        </div>
+                        <div class="col-9 col-md-9">
+                            <h3>Madhiya</h3>
+                            <h5 style="color: grey;">shakh</h5>
+                        </div>
+                        
+                    </div>
+                    <br>   
+                </div>
+                <div class="col-12 col-md-6">
+                    <hr class="section-line-black-thin">
+                    <br>
+                    <div class="row">
+                        <div class="col-3 col-md-2">
+                            <img src="./svg/008-suitcase.svg" alt="" class="img-fluid" width="90%">
+                        </div>
+                        <div class="col-9 col-md-9">
+                            <h3>Karsanpura</h3>
+                            <h5 style="color: grey;">native place</h5>
+                        </div>
+                        
+                    </div>
+                    <br>   
+                </div>
+                <div class="col-12 col-md-12">
+                    <hr class="section-line-black-thin">
+                    <br>
+                    <div class="row">
+                        <div class="col-3 col-md-1">
+                            <img src="./svg/008-suitcase.svg" alt="" class="img-fluid" width="90%">
+                        </div>
+                        <div class="col-9 col-md-11">
+                            <h3>Playing volleyball, watching stand-up comedy, listening to podcasts</h3>
+                            <h5 style="color: grey;">hobbies</h5>
+                        </div>
+                        
+                    </div>
+                    <br>   
+                </div>
             </div>
         </div>
     </section>
@@ -231,8 +336,16 @@
     <section>
         <div class="container">
             <br><br>
-                <h1 class="text-left">family background.</h1>
-                <br>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1 class="text-left">family background.</h1>
+                        <br>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./images/fam.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+                
             <div class="row">
                 <div class="col-6 col-md-6">
                     <br><br>
@@ -241,7 +354,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Atulkumar Patel</h3>
+                            <h4>Atulkumar Patel</h4>
                             <h5 style="color: grey;">name</h5>
                         </div>
                         <div class="col-md-3">
@@ -250,7 +363,7 @@
                     <br><br>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Pharmacist</h3>
+                            <h4>Pharmacist</h4>
                             <h5 style="color: grey;">education</h5>
                         </div>
                         <div class="col-md-3">
@@ -259,7 +372,7 @@
                     <br><br>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Supervisor at Hospital</h3>
+                            <h4>Supervisor at Hospital</h4>
                             <h5 style="color: grey;">occupation</h5>
                         </div>
                         <div class="col-md-3">
@@ -268,7 +381,7 @@
                     <br><br> 
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>+91 9324671216</h3>
+                            <h5>+91 9324671216</h5>
                             <h5 style="color: grey;">contact</h5>
                         </div>
                         <div class="col-md-3">
@@ -283,7 +396,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Bharti Patel</h3>
+                            <h4>Bharti Patel</h4>
                             <h5 style="color: grey;">name</h5>
                         </div>
                         <div class="col-md-3">
@@ -292,7 +405,7 @@
                     <br><br>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Bachelors in Arts</h3>
+                            <h4>Bachelors in Arts</h4>
                             <h5 style="color: grey;">education</h5>
                         </div>
                         <div class="col-md-3">
@@ -301,7 +414,7 @@
                     <br><br>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Home Maker</h3>
+                            <h4>Home Maker</h4>
                             <h5 style="color: grey;">occupation</h5>
                         </div>
                         <div class="col-md-3">
@@ -310,7 +423,7 @@
                     <br><br> 
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>+91 9869915538</h3>
+                            <h5>+91 9869915538</h5>
                             <h5 style="color: grey;">contact</h5>
                         </div>
                         <div class="col-md-3">
@@ -322,9 +435,9 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>15 & 56 Magan Baug, SJ Marg, Near Pheonix Mall, Lower Parel(West), Mumbai 400013</h3>
+                            <h4>15 & 56 Magan Baug, SJ Marg, Near Pheonix Mall, Lower Parel(West), Mumbai 400013</h4>
                             <h5 style="color: grey;">residential address</h5>
-                            <br><br><br><br>
+                            <br><br>
                         </div>
                         <div class="col-md-6">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.533851917597!2d72.82503981490451!3d18.996183459412837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce8cce5171c3%3A0x1243d98d61e456c!2sMagan%20Baug!5e0!3m2!1sen!2sin!4v1665297759276!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
