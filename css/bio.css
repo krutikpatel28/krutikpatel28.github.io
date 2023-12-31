@@ -46,11 +46,14 @@ a{
     background-color: white;
 }
 .section-line-black{
-    height: 2px; 
-    background-color: black;
-}.section-line-black-thin{
     height: 1px; 
-    background-color: black;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+.section-line-black-thin{
+    height: 0.5px; 
+    background-color: lightgrey;
+    border-radius: 10px;
 }
 .section-line-thin{
     height: 1px; 
@@ -93,7 +96,12 @@ a{
         padding-top: 2%;
         color: linear-gradient(90deg, rgba(53,176,255,1) 0%, rgba(235,0,255,1) 100%);
     }
-
+    .detail-font{
+        font-size:150%;
+    }
+    .detail-greyfont{
+        font-size: 120%;
+    }
   }
 .intro_title .title_brand h1{
     background: -webkit-linear-gradient(rgba(53,176,255,1), rgba(235,0,255,1));
