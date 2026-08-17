@@ -1,0 +1,1679 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Qi Studio — Two Audiences. One Platform.</title>
+<meta name="description" content="Redesigning Qi Studio, GEP's AI agent and workflow platform, so domain experts can author what engineers used to build — without taking the canvas away from the engineers who already lived there." />
+<meta name="color-scheme" content="dark" />
+<meta property="og:title" content="Qi Studio — Two Audiences. One Platform." />
+<meta property="og:type" content="article" />
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   krutik patel — case study: qi studio
+   ───────────────────────────────────────────────────────────────────────────
+   Same system as the index. The one idea added here: every figure in the
+   source material is printed on near-white, so the figures are treated as
+   paper PLATES mounted on the dark page — a monograph, with the dark hero
+   shot as its cover. Plates are numbered, because the argument is a sequence.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --ink-0:#f5f2ed;
+  --ink-1:#b8b4ad;
+  --ink-2:#8b8880;
+  --ink-3:#57544f;
+
+  --ground:#08080a;
+  --surface:#0d0d11;
+  --surface-2:#131318;
+  --rule:#1d1d22;
+  --rule-strong:#31313a;
+
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI Variable Display","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:ui-serif,"New York","Iowan Old Style","Hoefler Text","Palatino Linotype",Palatino,Georgia,serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,"Cascadia Mono",Consolas,"Liberation Mono",monospace;
+
+  --gutter:clamp(20px,5vw,88px);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:96px;
+}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink-0);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+.atmos,
+.grain{position:fixed;inset:0;pointer-events:none}
+.atmos{
+  z-index:0;
+  background:radial-gradient(115% 70% at 50% -12%,#191920 0%,#0c0c10 42%,var(--ground) 78%);
+}
+.grain{
+  z-index:9999;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.shell{position:relative;z-index:1}
+
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px solid var(--ink-0);outline-offset:4px;border-radius:2px}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:10000;
+  padding:12px 18px;background:var(--ink-0);color:var(--ground);
+  font-family:var(--mono);font-size:12px;
+}
+.skip:focus{left:var(--gutter);top:12px}
+
+.pd{color:var(--ink-3)}
+.band__name,
+.btn__t{white-space:nowrap}
+.band__name .pd,
+.btn__t .pd{font-family:var(--sans);letter-spacing:0;margin-left:-.3em}
+.btn__t .pd{color:currentColor;opacity:.45}
+
+/* ═══ nav ═══════════════════════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:color-mix(in srgb,var(--ground) 82%,transparent);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  backdrop-filter:blur(14px) saturate(120%);
+  border-bottom:1px solid var(--rule);
+}
+.nav__inner{
+  max-width:1560px;margin:0 auto;padding:0 var(--gutter);
+  height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav__mark{font-size:19px;font-weight:500;letter-spacing:-.03em;display:inline-flex;align-items:baseline}
+.nav__menu{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+.nav__link{
+  font-size:14.5px;letter-spacing:-.01em;color:var(--ink-1);
+  transition:color .3s var(--ease);position:relative;padding:6px 0;
+}
+.nav__link:hover{color:var(--ink-0)}
+.nav__link::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--ink-0);transform:scaleX(0);transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.nav__link:hover::after{transform:scaleX(1)}
+
+.nav__cta{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--rule-strong);border-radius:999px;padding:9px 17px;color:var(--ink-0);
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease);
+}
+.nav__cta:hover{background:var(--ink-0);border-color:var(--ink-0);color:var(--ground)}
+.nav__cta-dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:breathe 3.4s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* On a long read the progress hairline stops being decoration and starts
+   answering "how much of this is left?" */
+.nav__progress{
+  position:absolute;left:0;bottom:-1px;height:1px;width:100%;
+  background:var(--ink-0);transform:scaleX(0);transform-origin:left;
+}
+
+/* ═══ layout primitives ═════════════════════════════════════════════════ */
+.wrap{max-width:1560px;margin:0 auto;padding:0 var(--gutter)}
+.band{border-top:1px solid var(--rule)}
+.band__inner{
+  max-width:1560px;margin:0 auto;padding:clamp(56px,8vw,132px) var(--gutter);
+  display:grid;grid-template-columns:1fr;gap:clamp(26px,4vw,56px);
+}
+@media(min-width:900px){
+  .band__inner{grid-template-columns:190px minmax(0,1fr);gap:clamp(40px,6vw,96px)}
+}
+.band__label{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-1);display:flex;align-items:baseline;gap:12px;
+}
+@media(min-width:900px){
+  .band__label{position:sticky;top:104px;align-self:start;display:block}
+}
+.band__count{display:block;color:var(--ink-3);margin-top:0;font-variant-numeric:tabular-nums}
+@media(min-width:900px){.band__count{margin-top:10px}}
+.band__body{min-width:0}
+
+.h2{
+  font-size:clamp(2.1rem,5.2vw,3.7rem);
+  font-weight:300;letter-spacing:-.038em;line-height:1.02;
+  margin:0 0 clamp(24px,3vw,44px);text-wrap:balance;
+}
+.em{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  color:var(--ink-0);letter-spacing:-.01em;
+  white-space:nowrap;   /* an italic phrase breaks badly mid-way; keep it whole */
+}
+
+/* body copy — one measure, used everywhere */
+.prose{
+  font-size:clamp(1rem,1.35vw,1.14rem);
+  line-height:1.68;color:var(--ink-1);
+  max-width:64ch;margin:0 0 1.15em;
+}
+.prose:last-child{margin-bottom:0}
+.prose strong{color:var(--ink-0);font-weight:500}
+.prose code{
+  font-family:var(--mono);font-size:.86em;color:var(--ink-0);
+  background:var(--surface-2);border:1px solid var(--rule);
+  border-radius:3px;padding:.12em .4em;
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ground);background:var(--ink-0);
+  border:1px solid var(--ink-0);border-radius:999px;padding:13px 22px;
+  transition:transform .45s var(--ease),background .35s var(--ease),color .35s var(--ease);
+}
+.btn:hover{transform:translateY(-2px);background:#fff;border-color:#fff}
+.btn__arrow{transition:transform .45s var(--ease)}
+.btn:hover .btn__arrow{transform:translate(3px,-3px)}
+.btn--ghost{background:none;color:var(--ink-0);border-color:var(--rule-strong)}
+.btn--ghost:hover{background:var(--ink-0);color:var(--ground);border-color:var(--ink-0)}
+.btn--lg{font-size:12.5px;padding:17px 28px}
+
+/* ═══ hero ══════════════════════════════════════════════════════════════ */
+.hero{
+  container-type:inline-size;
+  padding-top:calc(68px + clamp(40px,7vh,88px));
+  padding-bottom:clamp(40px,6vw,80px);
+}
+.back{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:clamp(26px,4vw,52px);
+  transition:color .35s var(--ease);
+}
+.back:hover{color:var(--ink-0)}
+.back__arrow{transition:transform .45s var(--ease)}
+.back:hover .back__arrow{transform:translateX(-4px)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-2);display:block;margin-bottom:16px;
+}
+
+/* Two lines, each fitted flush to the measure — the same masthead device as
+   the index. The divisors are the measured run-width of each line at its own
+   font-size, so both edges land on the margin. */
+.cs-title{
+  margin:0;font-weight:300;letter-spacing:-.045em;line-height:.94;
+  white-space:nowrap;
+  font-size:clamp(2rem,9vw,7rem);
+}
+/* Each line carries its own divisor — its measured run-width per unit of
+   font-size — so both lines land flush on the measure and the pair reads as
+   one justified block. True at every width, so no breakpoint is needed. */
+.cs-title__l{display:block}
+.cs-title__l:nth-of-type(1){font-size:calc(100cqw / 6.14)}  /* Two Audiences. */
+.cs-title__l:nth-of-type(2){font-size:calc(100cqw / 5.27)}  /* One Platform.  */
+.cs-rule{height:1px;background:var(--rule-strong);margin-top:clamp(18px,2.4vw,30px)}
+
+.hero__lower{
+  display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,52px);
+  margin-top:clamp(28px,4vw,52px);
+}
+@media(min-width:900px){
+  .hero__lower{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .lede{grid-column:2}
+}
+.lede{
+  font-size:clamp(1.2rem,2.1vw,1.8rem);
+  font-weight:300;line-height:1.42;letter-spacing:-.02em;
+  color:var(--ink-1);max-width:34ch;margin:0;
+}
+
+/* the spec strip — who, when, what, on what */
+.facts{
+  --fpad:clamp(18px,2.2vw,32px);
+  margin-top:clamp(34px,4.5vw,60px);
+  border-top:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+}
+@media(min-width:760px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* The rule sits on the LEFT of each cell and every cell is inset on both
+   sides, so text never touches a divider. The cell that opens a row drops
+   both, keeping it flush with the page margin like everything else. */
+.fact{
+  padding:20px var(--fpad) 0;
+  border-left:1px solid var(--rule);
+}
+@media(max-width:759px){
+  .fact:nth-child(2n+1){border-left:0;padding-left:0}
+  .fact:nth-child(n+3){padding-top:26px}
+}
+@media(min-width:760px){
+  .fact:nth-child(4n+1){border-left:0;padding-left:0}
+}
+.fact__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:8px;
+}
+.fact__v{font-size:14.5px;color:var(--ink-1);line-height:1.45}
+
+/* ═══ plates — the figures ══════════════════════════════════════════════
+   Every source figure is printed on near-white, so rather than fight that,
+   the page mounts them as paper. The cover shot is dark, so it gets a dark
+   mount and reads as a cover rather than a plate. */
+/* Sources are 920px native, so plates stop there rather than upscaling to a
+   1300px column. The square role diagram gets its own, much smaller cap —
+   at full width it would stand over a thousand pixels tall. */
+.plate{margin:clamp(28px,3.4vw,48px) 0 0;max-width:1040px}
+.plate--sm{max-width:470px}
+.plate--cover{max-width:none}
+.plate:first-child{margin-top:0}
+.plate__frame{
+  background:var(--ink-0);
+  border:1px solid var(--rule-strong);
+  border-radius:4px;overflow:hidden;line-height:0;
+}
+.plate__frame img{display:block;width:100%;height:auto}
+.plate--cover .plate__frame{background:var(--surface);border-color:var(--rule)}
+.plate__cap{
+  margin-top:12px;display:flex;gap:12px;align-items:baseline;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-2);
+}
+.plate__no{color:var(--ink-3);flex:none;font-variant-numeric:tabular-nums}
+
+/* A before/after pair, read left to right in one glance. The two sources have
+   opposing aspects — a 1.85:1 card wall against a 0.49:1 panel — so they are
+   matched to a shared height and each cropped where it costs nothing: the wall
+   loses its right edge (it reads as continuing anyway), the panel loses the
+   composer at its foot (not part of this argument).
+
+   Each side stays a real element in the markup so the stacked order reads
+   label → shot → note; above the split the sides dissolve with
+   display:contents and their children lock onto shared grid rows. */
+.ba{display:grid;grid-template-columns:1fr;gap:clamp(26px,3.2vw,40px)}
+.ba__k,
+.pair__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);display:flex;align-items:center;gap:11px;margin-bottom:13px;
+}
+.ba__k::after,
+.pair__k::after{content:"";flex:1;height:1px;background:var(--rule)}
+.ba__note{margin:12px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+@media(max-width:899px){
+  .ba__shot--panel{max-width:420px}
+}
+@media(min-width:900px){
+  .ba{
+    --ba-h:clamp(300px,33vw,520px);
+    grid-template-columns:minmax(0,1fr) calc(var(--ba-h) * .60);
+    column-gap:clamp(20px,2.4vw,32px);
+    align-items:start;
+  }
+  .ba__side{display:contents}
+  .ba__side:nth-child(1) .ba__k   {grid-column:1;grid-row:1}
+  .ba__side:nth-child(1) .ba__shot{grid-column:1;grid-row:2}
+  .ba__side:nth-child(1) .ba__note{grid-column:1;grid-row:3}
+  .ba__side:nth-child(2) .ba__k   {grid-column:2;grid-row:1}
+  .ba__side:nth-child(2) .ba__shot{grid-column:2;grid-row:2}
+  .ba__side:nth-child(2) .ba__note{grid-column:2;grid-row:3}
+  .ba__shot{height:var(--ba-h)}
+  .ba__shot img{width:100%;height:100%;object-fit:cover}
+  .ba__shot--wall  img{object-position:left top}
+  .ba__shot--panel img{object-position:top}
+}
+
+/* A row of real screens under a diagram, echoing that diagram's own panels —
+   the diagram claims the structure, the screens show it shipped. Deliberately
+   small: each surface gets its own full-width plate elsewhere. Equal columns
+   over one shared aspect-ratio means every height matches automatically.
+   Items stay real elements so the stacked order reads label → shot. */
+.shots{display:grid;grid-template-columns:1fr;gap:clamp(22px,2.6vw,30px)}
+.shots__k{
+  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-2);display:flex;align-items:center;gap:10px;margin-bottom:11px;
+}
+.shots__k::after{content:"";flex:1;height:1px;background:var(--rule)}
+.shots__shot{aspect-ratio:1440/900;overflow:hidden}
+.shots__shot img{width:100%;height:100%;object-fit:cover;object-position:top left}
+@media(min-width:820px){
+  .shots{column-gap:clamp(16px,1.8vw,24px)}
+  .shots--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shots--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  /* A single row of shots dissolves its items so labels and shots lock onto
+     shared grid rows. A wrapping grid can't do that — explicit row placement
+     stops making sense past the first row — so there the items stay blocks.
+     They still align, because every label is one line and every shot carries
+     the same aspect-ratio. */
+  .shots--2 .shots__item,
+  .shots--3 .shots__item{display:contents}
+  .shots--2 .shots__item:nth-child(1) .shots__k{grid-column:1;grid-row:1}
+  .shots--2 .shots__item:nth-child(1) .shots__shot{grid-column:1;grid-row:2}
+  .shots--2 .shots__item:nth-child(2) .shots__k{grid-column:2;grid-row:1}
+  .shots--2 .shots__item:nth-child(2) .shots__shot{grid-column:2;grid-row:2}
+  .shots--3 .shots__item:nth-child(1) .shots__k{grid-column:1;grid-row:1}
+  .shots--3 .shots__item:nth-child(1) .shots__shot{grid-column:1;grid-row:2}
+  .shots--3 .shots__item:nth-child(2) .shots__k{grid-column:2;grid-row:1}
+  .shots--3 .shots__item:nth-child(2) .shots__shot{grid-column:2;grid-row:2}
+  .shots--3 .shots__item:nth-child(3) .shots__k{grid-column:3;grid-row:1}
+  .shots--3 .shots__item:nth-child(3) .shots__shot{grid-column:3;grid-row:2}
+  .shots--wrap2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shots--wrap3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .shots--wrap2,
+  .shots--wrap3{row-gap:clamp(24px,3vw,38px)}
+}
+
+/* The pattern beside the product: a 1.53:1 diagram next to a 0.49:1 panel.
+   The column ratio is derived from those two aspects rather than guessed —
+   at 2.54fr / 1fr both render the same height, so neither needs a fixed
+   pixel height and the pair stays level at every width. The diagram is never
+   cropped (every part of it carries meaning); the panel loses only the
+   composer at its foot, exactly as it does in fig. 04. */
+.pair{display:grid;grid-template-columns:1fr;gap:clamp(24px,3vw,36px)}
+.pair__panel{aspect-ratio:453/751;overflow:hidden}
+.pair__panel img{width:100%;height:100%;object-fit:cover;object-position:top}
+@media(max-width:819px){
+  .pair__panel{max-width:420px}
+}
+@media(min-width:820px){
+  .pair{grid-template-columns:2.54fr 1fr;column-gap:clamp(18px,2vw,28px);align-items:start}
+  .pair__side{display:contents}
+  .pair__side:nth-child(1) .pair__k{grid-column:1;grid-row:1}
+  .pair__side:nth-child(1) .plate__frame{grid-column:1;grid-row:2}
+  .pair__side:nth-child(2) .pair__k{grid-column:2;grid-row:1}
+  .pair__side:nth-child(2) .plate__frame{grid-column:2;grid-row:2}
+}
+
+/* ═══ challenges ════════════════════════════════════════════════════════ */
+.chal{padding:clamp(34px,4.5vw,64px) 0 0;border-top:1px solid var(--rule);margin-top:clamp(34px,4.5vw,64px)}
+.chal:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.chal__idx{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:14px;font-variant-numeric:tabular-nums;
+}
+.chal__h{
+  font-size:clamp(1.5rem,3vw,2.3rem);
+  font-weight:300;letter-spacing:-.03em;line-height:1.12;
+  margin:0 0 clamp(22px,2.6vw,34px);text-wrap:balance;
+}
+.pm{display:grid;grid-template-columns:1fr;gap:clamp(22px,3vw,46px)}
+@media(min-width:820px){.pm{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pm__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);display:flex;align-items:center;gap:11px;margin-bottom:13px;
+}
+.pm__k::after{content:"";flex:1;height:1px;background:var(--rule)}
+.pm .prose{max-width:46ch}
+
+/* ═══ the 5.x moves ═════════════════════════════════════════════════════ */
+.move{padding:clamp(38px,5vw,72px) 0 0;border-top:1px solid var(--rule);margin-top:clamp(38px,5vw,72px)}
+.move__h{
+  font-size:clamp(1.5rem,3vw,2.3rem);
+  font-weight:300;letter-spacing:-.03em;line-height:1.12;margin:0;text-wrap:balance;
+}
+.move__sub{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.05rem,1.7vw,1.32rem);
+  color:var(--ink-1);margin:12px 0 clamp(20px,2.4vw,30px);
+}
+
+/* ═══ quotes ════════════════════════════════════════════════════════════ */
+.quote{margin:clamp(34px,4.5vw,64px) 0 0;padding:0;border-left:1px solid var(--rule-strong);padding-left:clamp(20px,3vw,40px)}
+.quote__t{
+  font-family:var(--serif);
+  font-size:clamp(1.25rem,2.4vw,2rem);
+  line-height:1.44;letter-spacing:-.015em;color:var(--ink-0);
+  margin:0;max-width:34ch;
+}
+.quote__a{
+  display:block;margin-top:20px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);font-style:normal;
+}
+
+/* ═══ outcome lists & metrics ═══════════════════════════════════════════ */
+.notes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:0}
+.note{border-top:1px solid var(--rule);padding:clamp(20px,2.6vw,30px) 0}
+.note:first-child{border-top:0;padding-top:0}
+.note__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:11px;font-variant-numeric:tabular-nums;
+}
+.note__h{
+  font-size:clamp(1.1rem,1.85vw,1.42rem);
+  font-weight:300;letter-spacing:-.022em;line-height:1.28;
+  color:var(--ink-0);margin:0 0 10px;max-width:44ch;
+}
+.note .prose{max-width:58ch;margin:0}
+
+.stats{
+  display:grid;grid-template-columns:1fr;
+  border-top:1px solid var(--rule);
+}
+@media(min-width:820px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.stat{
+  padding:clamp(22px,2.8vw,32px) 0;border-bottom:1px solid var(--rule);
+}
+@media(min-width:820px){
+  .stat{border-bottom:0;border-right:1px solid var(--rule);padding-right:clamp(20px,2.6vw,40px)}
+  .stat + .stat{padding-left:clamp(20px,2.6vw,40px)}
+  .stat:last-child{border-right:0}
+}
+.stat__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);display:block;margin-bottom:14px;
+}
+.stat__v{
+  font-size:clamp(1.7rem,3.2vw,2.5rem);
+  font-weight:300;letter-spacing:-.035em;line-height:1;
+  color:var(--ink-0);display:block;margin-bottom:14px;
+  font-variant-numeric:tabular-nums;
+}
+.stat__d{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0;max-width:34ch}
+
+/* ═══ up next ═══════════════════════════════════════════════════════════ */
+.next{display:block;position:relative}
+.next__grid{display:grid;grid-template-columns:1fr;gap:clamp(22px,3vw,44px);align-items:center}
+@media(min-width:820px){.next__grid{grid-template-columns:minmax(0,1fr) minmax(0,.86fr)}}
+.next__title{
+  font-size:clamp(1.85rem,4.2vw,3.1rem);
+  font-weight:300;letter-spacing:-.038em;line-height:1.03;margin:0;
+  display:inline-block;position:relative;
+}
+.next__title::after{
+  content:"";position:absolute;left:0;right:0;bottom:-.08em;height:1px;
+  background:var(--ink-2);transform:scaleX(0);transform-origin:left;
+  transition:transform .6s var(--ease);
+}
+.next:hover .next__title::after{transform:scaleX(1)}
+.next__desc{margin:16px 0 0;color:var(--ink-2);font-size:clamp(.95rem,1.35vw,1.08rem);line-height:1.55;max-width:44ch}
+.next__tags{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0 0;padding:0;list-style:none}
+.next__tag{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;
+  transition:border-color .4s var(--ease),color .4s var(--ease);
+}
+.next:hover .next__tag{border-color:var(--rule-strong);color:var(--ink-1)}
+.next__open{
+  margin-top:26px;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-1);
+}
+.next__open svg{transition:transform .5s var(--ease)}
+.next:hover .next__open svg{transform:translate(4px,-4px)}
+.next__art{
+  position:relative;aspect-ratio:16/10;background:var(--surface);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+  transition:border-color .5s var(--ease);
+}
+.next:hover .next__art{border-color:var(--rule-strong)}
+.next__art canvas{display:block;width:100%;height:100%;opacity:.62;transition:opacity .6s var(--ease)}
+.next:hover .next__art canvas{opacity:1}
+.next__art-label{
+  position:absolute;left:14px;bottom:12px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+.soon{
+  border-top:1px dashed var(--rule);margin-top:clamp(28px,3.4vw,44px);
+  padding-top:clamp(28px,3.4vw,44px);
+  display:flex;align-items:center;gap:14px;color:var(--ink-3);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+}
+.soon .dots{display:inline-flex;gap:5px}
+.soon .dots i{width:4px;height:4px;border-radius:50%;background:var(--ink-3);animation:pulse 1.5s ease-in-out infinite}
+.soon .dots i:nth-child(2){animation-delay:.2s}
+.soon .dots i:nth-child(3){animation-delay:.4s}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* ═══ contact + footer ══════════════════════════════════════════════════ */
+.contact__line{
+  font-size:clamp(1.9rem,5.2vw,4rem);
+  font-weight:300;letter-spacing:-.04em;line-height:1.06;
+  margin:0 0 clamp(30px,4vw,52px);max-width:19ch;text-wrap:balance;
+}
+.foot{border-top:1px solid var(--rule)}
+.foot__inner{
+  max-width:1560px;margin:0 auto;
+  padding:clamp(28px,3.5vw,44px) var(--gutter) clamp(34px,4vw,54px);
+  display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
+}
+.foot__links{display:flex;flex-wrap:wrap;gap:clamp(14px,2.4vw,30px)}
+.foot__link{font-size:14.5px;color:var(--ink-1);position:relative;padding-bottom:3px;transition:color .35s var(--ease)}
+.foot__link:hover{color:var(--ink-0)}
+.foot__link::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--ink-0);transform:scaleX(0);transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.foot__link:hover::after{transform:scaleX(1)}
+.foot__note{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--ink-3);line-height:1.7}
+
+/* ═══ reveals ═══════════════════════════════════════════════════════════ */
+.rise{opacity:0;transform:translateY(16px)}
+.is-in{opacity:1;transform:none;transition:opacity .95s var(--ease),transform .95s var(--ease)}
+[data-seq]{transition-delay:calc(var(--i,0) * 80ms)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .rise{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+<div class="atmos" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<a class="skip" href="#overview">skip to the case study</a>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__mark" href="index.html" aria-label="krutik patel, home">kp<span class="pd">.</span></a>
+    <nav class="nav__menu" aria-label="sections">
+      <a class="nav__link" href="index.html#work">work<span class="pd">.</span></a>
+      <a class="nav__link" href="#contact">contact<span class="pd">.</span></a>
+      <a class="nav__cta" href="https://calendly.com/krutikpatel347/15min?" target="_blank" rel="noopener">
+        <span class="nav__cta-dot" aria-hidden="true"></span>free 1:1
+      </a>
+    </nav>
+  </div>
+  <div class="nav__progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main class="shell" id="top">
+
+  <!-- ═══ hero ═══════════════════════════════════════════════════════ -->
+  <section class="wrap hero">
+    <a class="back rise" data-seq style="--i:0" href="index.html#work">
+      <svg class="back__arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+        <path d="M10 5.5H1M5 1 1 5.5 5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
+      </svg>
+      back to work
+    </a>
+
+    <span class="eyebrow rise" data-seq style="--i:1">case study · qi studio</span>
+
+    <h1 class="cs-title rise" data-seq style="--i:2" id="csTitle"
+      ><span class="cs-title__l">Two Audiences.</span
+      ><span class="cs-title__l">One Platform.</span
+    ></h1>
+    <div class="cs-rule rise" data-seq style="--i:3" aria-hidden="true"></div>
+
+    <div class="hero__lower">
+      <p class="lede rise" data-seq style="--i:4">
+        Redesigning Qi Studio so domain experts can author what engineers used to
+        build, without taking the canvas away from the engineers who
+        <span class="em">already lived there.</span>
+      </p>
+    </div>
+
+    <dl class="facts rise">
+      <div class="fact">
+        <dt class="fact__k">client</dt>
+        <dd class="fact__v" style="margin:0">GEP</dd>
+      </div>
+      <div class="fact">
+        <dt class="fact__k">shipped</dt>
+        <dd class="fact__v" style="margin:0">Jan 2026</dd>
+      </div>
+      <div class="fact">
+        <dt class="fact__k">my role</dt>
+        <dd class="fact__v" style="margin:0">Co-lead UX — conversational surface, cross-platform patterns</dd>
+      </div>
+      <div class="fact">
+        <dt class="fact__k">surface</dt>
+        <dd class="fact__v" style="margin:0">AI · B2B · Web</dd>
+      </div>
+    </dl>
+
+    <figure class="plate plate--cover rise" style="margin-top:clamp(40px,5vw,72px)">
+      <div class="plate__frame">
+        <img src="assets/01-hero.jpg" width="2048" height="953"
+             alt="Three Qi Studio screens: the visual workflow canvas, the natural-language home screen, and the chat-plus-specification builder." />
+      </div>
+      <figcaption class="plate__cap">
+        <span class="plate__no">cover</span>
+        <span>Qi Studio — the advanced canvas, the home surface, and the specifications builder.</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ═══ 01 overview ════════════════════════════════════════════════ -->
+  <section class="band" id="overview">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">01 · overview</span>
+        <span class="band__count">the premise</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">The Sidekick Got Promoted<span class="pd">.</span></h2>
+        <p class="prose rise">
+          Qi Studio is GEP's AI agent and workflow platform. It already worked for engineers.
+          The procurement experts who actually understood the workflows couldn't build them.
+          This is the story of how we redesigned the front door so the people who own the work
+          could finally do the work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 02 role ════════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">02 · role</span>
+        <span class="band__count">co-lead ux</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Both Sides of the Builder<span class="pd">.</span></h2>
+        <p class="prose rise">
+          I co-led the UX for Qi Studio with another senior designer. Between us we held the IA,
+          the interaction patterns, the conversational design surface, the visual system, and the
+          design system tokens that hold the platform together.
+        </p>
+        <p class="prose rise">
+          My counterpart took the lead on the visual workflow canvas (Advanced mode). I took the
+          lead on the conversational surface (Specifications mode) and the cross-platform
+          interaction patterns. Most of the structural design — the dual-mode model, the primitive
+          taxonomy, the checkpoint system — was authored together.
+        </p>
+        <p class="prose rise">
+          We worked alongside ML and platform engineering (who owned the AI behaviour), product
+          management, and — most importantly — the procurement domain experts who became our
+          north star.
+        </p>
+
+        <figure class="plate plate--sm rise">
+          <div class="plate__frame">
+            <img src="assets/02-role.svg" width="560" height="500"
+                 alt="Diagram: a domain author who speaks procurement and an engineer who speaks platform, both pointing at the same Supplier Onboarding workflow." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 01</span>
+            <span>Same artifact, two ways in — Specifications meets Advanced over one data model.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 03 challenges ══════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">03 · key challenges</span>
+        <span class="band__count">04 problems</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">When the Builder is the Bottleneck<span class="pd">.</span></h2>
+        <p class="prose rise">
+          We weren't designing into a vacuum. Qi Studio already shipped — with two dozen
+          orchestrations, 151 connectors, a visual canvas, and a small purple AI helper called
+          QiPilot in the toolbar. The platform worked. It worked for the wrong audience.
+        </p>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 01</span>
+          <h3 class="chal__h">The system spoke developer.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                The tools catalogue was a wall of raw function names:
+                <code>getchunksfromQdrant</code>, <code>pvaireviewContractDatagrid0013</code>,
+                <code>bulkUpdateContractMetadata</code>. The IA was a developer's map. A sourcing
+                lead landing on this screen had no idea where to start.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                A translation layer. Tools, skills, knowledge, and connectors got
+                procurement-vernacular names (“Contract Clause Lookup”, “Compare Contract
+                Versions”) and short, plain-language descriptions. The IA collapsed from seven
+                workspaces to six clear primitives. The developer surface didn't disappear — it
+                moved one tab deeper.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/03-ch1-translation.svg" width="920" height="440"
+                   alt="Diagram: raw function names on the left translated into procurement-vernacular tool names on the right." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 02</span>
+              <span>The translation layer — developer nomenclature to procurement vernacular.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 02</span>
+          <h3 class="chal__h">Composition without curation.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                Twenty-four orchestrations already existed, hand-built one at a time. They sat in a
+                card library, scrolled past, and got rebuilt the next time someone asked for
+                something similar. No one was searching the library before building. There was no
+                shared memory.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                Capability discovery as the first move. When a user describes intent, Qi searches
+                the existing library and reports back with confidence scores. The default
+                recommended path: “Combine existing and create only what's missing.” We called it
+                <strong>Compose Before Create</strong>.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/04-ch2-compose.svg" width="920" height="480"
+                   alt="Diagram: an intent is matched against the existing library, returning reuse candidates with confidence scores." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 03</span>
+              <span>Capability discovery — search the library before generating anything.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="plate rise">
+            <div class="ba">
+              <div class="ba__side">
+                <div class="ba__k">before</div>
+                <div class="plate__frame ba__shot ba__shot--wall">
+                  <img src="assets/19-before-library.png" width="1800" height="972"
+                       alt="The Agentic Orchestrations catalogue: a grid of two dozen contract agent cards with no search-before-build affordance." />
+                </div>
+                <p class="ba__note">
+                  The catalogue as it shipped — two dozen agents in a card grid, scrolled past and
+                  rebuilt the next time someone asked for something similar.
+                </p>
+              </div>
+              <div class="ba__side">
+                <div class="ba__k">after</div>
+                <div class="plate__frame ba__shot ba__shot--panel">
+                  <img src="assets/20-after-reuse.svg" width="453" height="927"
+                       alt="Qi's capability analysis panel: three of four capabilities matched to existing agents with confidence scores, the fourth marked create new." />
+                </div>
+                <p class="ba__note">
+                  The same intent, answered before anything is generated: three of four capabilities
+                  matched, each scored.
+                </p>
+              </div>
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 04</span>
+              <span>The shipped catalogue, and the same intent answered by capability discovery.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 03</span>
+          <h3 class="chal__h">The black-box problem.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                Enterprise procurement is a compliance-heavy domain. “The AI did it” is not an
+                acceptable answer when an auditor asks why a supplier was approved. Pure-prompt AI
+                tools are black boxes by default. Our users needed inspection, not magic.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                Every AI action shows its work. Confidence scores on reuse. Sentence-level diffs on
+                spec changes. Checkpoints at every step. The principle: a domain expert should
+                inspect what Qi did, why, and what changed — without learning to read code.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/05-ch3-blackbox.svg" width="1080" height="560"
+                   alt="Diagram contrasting an opaque black-box AI action with an inspectable one showing confidence, diffs and checkpoints." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 05</span>
+              <span>Inspection over magic — every AI action shows its work.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 04</span>
+          <h3 class="chal__h">Two audiences, one product.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                We couldn't remove the existing power surface. Engineering had built sophisticated
+                agents on the visual canvas — with state passing, ReAct strategies, custom tools,
+                model selection. They needed all of it. But every new feature shipped for
+                engineering pushed procurement further away.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                A two-speed builder. Same workflow, two cognitive modes. Specifications mode
+                (conversational, fast, domain-vernacular). Advanced mode (visual canvas, model
+                picker, system prompt editor). Test mode for QA. Not two products. One product,
+                two reading levels.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/06-ch4-two-audiences.svg" width="920" height="460"
+                   alt="Diagram: one product split into Specifications, Test and Advanced modes serving two audiences." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 06</span>
+              <span>One product, two reading levels — not two products.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">framework</span>
+          <h3 class="chal__h">The Translation Tax</h3>
+          <p class="prose">
+            These four challenges aren't independent — they're symptoms of one structural cost.
+            Every time a procurement expert wanted to build a workflow, they paid a hidden tax:
+            explain it to engineering, wait, review, ask for changes, wait again. The whole
+            redesign is an attempt to take that tax to zero.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/07-translation-tax.svg" width="1080" height="830"
+                   alt="Before and after diagram: a seven-step three-week hand-off collapsed into a single conversation with Qi, a projected 85% reduction." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 07</span>
+              <span>The translation tax — before, after, and the step that collapses.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 process ═════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">04 · process</span>
+        <span class="band__count">06 weeks research</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Listening Before Designing<span class="pd">.</span></h2>
+        <p class="prose rise">
+          We didn't begin with sketches. We began with two parallel research tracks running for
+          six weeks — watching the experts struggle, and interviewing the engineers who had been
+          translating for them.
+        </p>
+
+        <figure class="plate rise">
+          <div class="plate__frame">
+            <img src="assets/08-process-a.svg" width="920" height="320"
+                 alt="Research findings panel: 11 of 12 procurement experts gave up before publishing in the legacy Qi Studio, and 70% of engineering build time went to translation rather than prompts, tools or testing." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 08</span>
+            <span>What the research found — 11 of 12 authors stalled, and where the engineering time actually went.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="plate rise">
+          <div class="plate__frame">
+            <img src="assets/09-process-b.svg" width="1080" height="550"
+                 alt="Diagram of a four-step research loop: observe the authors, interview the builders, find the translation step, prototype both surfaces — repeated per surface decision." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 09</span>
+            <span>The two-sided research loop — observe one audience, interview the other, design the gap between them.</span>
+          </figcaption>
+        </figure>
+
+        <blockquote class="quote rise">
+          <p class="quote__t">
+            The procurement experts couldn't build. The engineers were spending most of their time
+            translating. The translation work itself was the product opportunity.
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05 ux design ═══════════════════════════════════════════════ -->
+  <section class="band" id="design">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">05 · ux design</span>
+        <span class="band__count">09 moves</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Two Speeds, One Builder<span class="pd">.</span></h2>
+        <p class="prose rise">
+          Five connected design moves — and one cross-platform pattern that ties them together.
+          Everything from here is the design response to The Translation Tax.
+        </p>
+        <p class="prose rise">
+          Same artifact. Two cognitive modes. One QA gate. Specifications is the new
+          procurement-friendly entry. Advanced is the existing developer canvas — preserved, not
+          replaced. Test is the gate where both audiences meet.
+        </p>
+
+        <figure class="plate rise">
+          <div class="plate__frame">
+            <img src="assets/10-two-speeds.svg" width="1080" height="660"
+                 alt="Diagram of the two-speed builder: Specifications, Test and Advanced modes over a shared artifact." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 10</span>
+            <span>The two-speed builder — one artifact, two cognitive modes, one QA gate.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="plate rise">
+          <div class="shots shots--3">
+            <div class="shots__item">
+              <div class="shots__k">mode 01 · specifications</div>
+              <div class="plate__frame shots__shot">
+                <img src="assets/21-mode1-specifications.png" width="1100" height="709"
+                     alt="Specifications mode: Qi's chat on the left, the Compliance Rule Checking specification building on the right." />
+              </div>
+            </div>
+            <div class="shots__item">
+              <div class="shots__k">mode 02 · advanced</div>
+              <div class="plate__frame shots__shot">
+                <img src="assets/22-mode2-advanced.png" width="1100" height="688"
+                     alt="Advanced mode: the same workflow as a node-and-wire canvas with versioned agent nodes on a dotted grid." />
+              </div>
+            </div>
+            <div class="shots__item">
+              <div class="shots__k">mode 03 · test</div>
+              <div class="plate__frame shots__shot">
+                <img src="assets/23-mode3-test.png" width="1100" height="688"
+                     alt="Test mode: generated test cases for the workflow, each with a pass or not-tested status." />
+              </div>
+            </div>
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 11</span>
+            <span>The same Supplier Onboarding workflow, read at all three speeds.</span>
+          </figcaption>
+        </figure>
+
+        <article class="move rise">
+          <span class="chal__idx">5.2 · pattern</span>
+          <h3 class="move__h">The Conversation Pattern</h3>
+          <p class="move__sub">Chat on the left. Artifact on the right. Both live.</p>
+          <p class="prose">
+            The Specifications surface is a two-pane layout that does something subtle: it makes
+            generative AI legible. The user watches the agent assemble in real time — Qi paraphrases
+            intent on the left, while sections of the spec stream into existence on the right.
+            Pure-chat AI tools hide the artifact in the conversation. Pure-builder tools strip away
+            the narration. The two-pane model gives users both.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/11-conversation-pattern.jpg" width="1536" height="979"
+                   alt="Annotated Qi Studio screen: top navigation, agent title and status, chat panel on the left, configuration tabs on the right." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 12</span>
+              <span>The two-pane Specifications surface, annotated.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">5.3 · behaviour</span>
+          <h3 class="move__h">Compose Before Create</h3>
+          <p class="move__sub">Search the library first. Generate second.</p>
+          <p class="prose">
+            Before Qi generates anything, it searches existing agents, skills, tools, and knowledge —
+            and returns reuse candidates with confidence scores. The Recommended path is always to
+            combine existing pieces with only what's net-new. Compose Before Create is the
+            anti-sprawl pattern expressed in the interaction itself.
+          </p>
+          <figure class="plate">
+            <div class="pair">
+              <div class="pair__side">
+                <div class="pair__k">the pattern</div>
+                <div class="plate__frame">
+                  <img src="assets/12-compose-before-create.svg" width="920" height="600"
+                       alt="Diagram of the compose-before-create flow with reuse candidates and confidence scores." />
+                </div>
+              </div>
+              <div class="pair__side">
+                <div class="pair__k">in the product</div>
+                <div class="plate__frame pair__panel">
+                  <img src="assets/20-after-reuse.svg" width="453" height="927"
+                       alt="The shipped capability analysis panel, matching three of four capabilities to existing agents." />
+                </div>
+              </div>
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 13</span>
+              <span>Reuse candidates surfaced with confidence, before anything is generated — the pattern, and the panel that ships it.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">5.4 · trust mechanism</span>
+          <h3 class="move__h">Checkpoint Architecture</h3>
+          <p class="move__sub">Git, but for natural-language specs.</p>
+          <p class="prose">
+            Versioning code is well-understood. Versioning natural-language agent specifications —
+            where a single sentence can change behaviour — is not. Every meaningful step in the build
+            flow generates a Checkpoint with a View Changes affordance. Opening it shows
+            sentence-level diffs: Modified, New, Removed. Read like an email amendment, not a code
+            commit.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/13-checkpoints.png" width="1440" height="900"
+                   alt="Qi Studio screen showing a Checkpoint 1.1 marker with a View Changes link inside the chat panel." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 14</span>
+              <span>Checkpoints in the build flow, each with a View Changes affordance.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">5.5 · trust mechanism</span>
+          <h3 class="move__h">Build-Time Honesty</h3>
+          <p class="move__sub">Surface every gap during construction.</p>
+          <p class="prose">
+            The old Qi Studio would let you save an unconfigured orchestration and find out at
+            runtime that a connector was missing. The redesign surfaces every structural gap during
+            build — missing connectors, ambiguous inputs, untested edges — with inline warnings and
+            Configure CTAs. The agent cannot ship until the system has called its bluffs.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/14-build-time-honesty.svg" width="920" height="460"
+                   alt="Diagram: a build-time warning asking for a missing data source, resolved into a confirmed connector marked ready to publish." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 15</span>
+              <span>Structural gaps surfaced at build time, not at runtime.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="plate">
+            <div class="shots shots--2">
+              <div class="shots__item">
+                <div class="shots__k">during build</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/24-gap-during-build.png" width="1200" height="750"
+                       alt="The build flagging a gap: an amber Additional details needed warning with a Configure action, and the connector picker open showing SAP and Oracle ERP connected and Coupa expired." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">before publish</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/25-gap-resolved.png" width="1200" height="750"
+                       alt="The same step resolved: a green Additional details added confirmation, with the external data source now wired into the specification." />
+                </div>
+              </div>
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 16</span>
+              <span>The same gap, called at build time and cleared before publish.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">5.6 · architecture</span>
+          <h3 class="move__h">The Six Primitives</h3>
+          <p class="move__sub">One taxonomy. Six pieces. Many workflows.</p>
+          <p class="prose">
+            Underneath every authoring surface is a single architectural taxonomy. Agents are made
+            of Skills. Skills use Tools and Knowledge. Tools and Connectors talk to data. Widgets
+            surface results. Each primitive gets its own catalogue page, its own
+            procurement-vernacular naming, and — critically — its own two-speed builder.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/15-six-primitives.svg" width="1080" height="660"
+                   alt="Taxonomy diagram: six primitives — agent, skill, tool, knowledge, connector, widget — each with its author, collecting into one workflow." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 17</span>
+              <span>The primitive taxonomy underneath every authoring surface.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="plate">
+            <div class="shots shots--wrap3">
+              <div class="shots__item">
+                <div class="shots__k">01 · agent</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/26-p1-agent.png" width="1000" height="625" alt="The Agents catalogue — each agent card carrying its domain tags, owner and last edit." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">02 · skill</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/27-p2-skill.png" width="1000" height="625" alt="The Skills catalogue — named actions an agent can perform, in procurement vocabulary." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">03 · tool</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/28-p3-tool.png" width="1000" height="625" alt="The Tools catalogue — capabilities an agent doesn't have natively." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">04 · knowledge</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/29-p4-knowledge.png" width="1000" height="625" alt="The Knowledge catalogue — background material the agent grounds its answers in." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">05 · connector</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/30-p5-connector.png" width="1000" height="625" alt="The Connectors catalogue — integrations to external systems, with connection state on each card." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">06 · widget</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/31-p6-widget.png" width="1000" height="625" alt="The Widgets catalogue — visual output components that render an agent's results." />
+                </div>
+              </div>
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 18</span>
+              <span>One catalogue per primitive — the same page grammar six times over.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">5.7 · platform pattern</span>
+          <h3 class="move__h">One Builder, Six Times.</h3>
+          <p class="move__sub">Same pattern. Different primitive.</p>
+          <p class="prose">
+            The Specifications surface authors agents, skills, tools, knowledge, widgets, and
+            connectors — every primitive — with the same chat-left, artifact-right composition. The
+            grammar is the platform. Add a new primitive type in the future and the platform absorbs
+            it without a new builder paradigm.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/16-one-builder-six-times.svg" width="1200" height="640"
+                   alt="Diagram showing the same chat-left, artifact-right builder applied across all six primitive types." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 19</span>
+              <span>The same composition, applied across every primitive type.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="plate">
+            <div class="shots shots--wrap2">
+              <div class="shots__item">
+                <div class="shots__k">agent</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/21-mode1-specifications.png" width="1100" height="709" alt="The agent builder: Qi's chat on the left, the Supplier Onboarding specification on the right." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">skill</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/32-b2-skill.png" width="1200" height="750" alt="The skill builder: the same composition authoring a three-way invoice validation skill, step by step." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">tool</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/33-b3-tool.png" width="1200" height="750" alt="The tool builder: the same composition authoring an Excel-to-CSV extraction tool." />
+                </div>
+              </div>
+              <div class="shots__item">
+                <div class="shots__k">widget</div>
+                <div class="plate__frame shots__shot">
+                  <img src="assets/34-b4-widget.png" width="1200" height="750" alt="The widget builder: the same composition assembling a supplier onboarding form from a components library." />
+                </div>
+              </div>
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 20</span>
+              <span>Chat left, artifact right — the same builder authoring four different primitives.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">5.8 · power surface</span>
+          <h3 class="move__h">The Advanced Canvas, Preserved.</h3>
+          <p class="move__sub">Engineers didn't lose their tool.</p>
+          <p class="prose">
+            The Advanced canvas is the original Qi Studio orchestration editor — refined but intact.
+            Node-and-wire workflow on a dotted grid. Per-agent versioning (v2.1, v1.8, v2.3). Model
+            picker exposed. System prompt editor with markdown, state references, and ReAct strategy
+            selection. Anything authored in Specifications opens cleanly here. No conversion. No
+            data loss.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/17-advanced-canvas.jpg" width="1440" height="900"
+                   alt="The Advanced canvas: a node-and-wire agent workflow on a dotted grid with versioned agent nodes." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 21</span>
+              <span>The original orchestration editor — refined, not replaced.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">5.9 · system</span>
+          <h3 class="move__h">Confidence without intimidation.</h3>
+          <p class="move__sub">Legibility before personality.</p>
+          <p class="prose">
+            We anchored the visual system on legibility before personality. The result is
+            intentionally calm. The interesting things happen in the artifact pane and the chat —
+            the chrome stays out of the way. Typography, status colors, iconography, tags, pills,
+            and multilingual scaffolding all serve one goal: help procurement experts inspect what
+            Qi is doing without making the product feel technical or intimidating.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/18-design-system.svg" width="1080" height="790"
+                   alt="Visual language sheet: the DM Sans type scale, the Qi brand gradient, semantic status pills, a 24px line icon set, gradient agent avatars, and domain tag pills." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 22</span>
+              <span>The system sheet — type, colour, iconography, avatars, tags and state.</span>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 06 closing ═════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">06 · closing</span>
+        <span class="band__count">rolling out</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Still Iterating, Already Adopted<span class="pd">.</span></h2>
+        <p class="prose rise">
+          The redesign is rolling out in waves across GEP's customer environments. We don't have a
+          full quarter of measured outcome data yet — but the early signal is qualitative,
+          observable, and consistent.
+        </p>
+
+        <blockquote class="quote rise">
+          <p class="quote__t">
+            I used to file a ticket and wait three weeks. Now I describe what I want and watch the
+            agent appear on the right. The first time it surfaced an existing agent I didn't know we
+            had, I felt like the platform had finally caught up to me.
+          </p>
+          <cite class="quote__a">Category Manager · Internal Pilot</cite>
+        </blockquote>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">What's working.</h3>
+        <ol class="notes rise">
+          <li class="note">
+            <span class="note__k">working — 01</span>
+            <h4 class="note__h">Procurement authors are completing workflows end-to-end.</h4>
+            <p class="prose">
+              Without engineering hand-off, in early pilots. The translation step is collapsing
+              exactly where the research predicted.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">working — 02</span>
+            <h4 class="note__h">Engineers haven't lost their canvas.</h4>
+            <p class="prose">
+              Adoption of Advanced mode is unchanged among the engineering audience. The two-speed
+              model didn't force a migration — it added a lane.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">working — 03</span>
+            <h4 class="note__h">The reuse rate is climbing.</h4>
+            <p class="prose">
+              The 24 legacy orchestrations were rebuilt from scratch in 80% of new requests. Early
+              pilots suggest Compose Before Create is meaningfully bending that curve.
+            </p>
+          </li>
+        </ol>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">Projected impact.</h3>
+        <p class="prose rise" style="margin-bottom:clamp(24px,3vw,36px)">
+          Framed against industry benchmarks — targets, not measured results.
+        </p>
+        <div class="stats rise">
+          <div class="stat">
+            <span class="stat__k">workflow buildout</span>
+            <span class="stat__v">2–8 wk → hrs</span>
+            <p class="stat__d">
+              Industry benchmark for procurement IT-led workflow buildouts. Target with
+              conversational authoring: hours to days on the happy path.
+            </p>
+          </div>
+          <div class="stat">
+            <span class="stat__k">onboarding curve</span>
+            <span class="stat__v">40+ hrs → 2</span>
+            <p class="stat__d">
+              Enterprise no-code AI platforms typically need 40+ hours of training. Targeting under
+              2 hours through native procurement vocabulary.
+            </p>
+          </div>
+          <div class="stat">
+            <span class="stat__k">reuse rate</span>
+            <span class="stat__v">20% → 60%+</span>
+            <p class="stat__d">
+              Legacy baseline was approx 20% reuse on new requests. Compose Before Create targets
+              60%+ within the first year of rollout.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">Winning moments.</h3>
+        <ol class="notes rise">
+          <li class="note">
+            <span class="note__k">01</span>
+            <h4 class="note__h">The promotion of the sidekick.</h4>
+            <p class="prose">
+              The single design move that organised everything else. Reframing QiPilot from a
+              toolbar button to the primary surface unlocked the rest of the system.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">02</span>
+            <h4 class="note__h">Preserved engineering trust.</h4>
+            <p class="prose">
+              The hardest stakeholder wasn't procurement — it was the engineering team who built the
+              original canvas. Designing with them kept their work load-bearing in the new platform.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">03</span>
+            <h4 class="note__h">One builder, six times.</h4>
+            <p class="prose">
+              The conversational + canvas pattern scaled across every primitive type with no
+              architectural rework. The grammar was right.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">04</span>
+            <h4 class="note__h">The diff view earned its keep.</h4>
+            <p class="prose">
+              Watching a domain expert review a checkpoint diff and catch a regression was the
+              moment the system felt trustable.
+            </p>
+          </li>
+        </ol>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">Lessons learned.</h3>
+        <ol class="notes rise">
+          <li class="note">
+            <span class="note__k">01</span>
+            <h4 class="note__h">Don't redesign what works. Redesign what shipped to the wrong audience.</h4>
+            <p class="prose">
+              The brief was almost never to add capability — it was to widen access without breaking
+              the existing audience.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">02</span>
+            <h4 class="note__h">Two-audience products need two-audience research.</h4>
+            <p class="prose">
+              The translation step between procurement and engineering was invisible until we
+              interviewed both sides in parallel.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">03</span>
+            <h4 class="note__h">Conversation alone isn't trust.</h4>
+            <p class="prose">
+              Trust comes from inspection — confidence scores, diffs, checkpoints, build-time
+              warnings. The conversation is the entry; the artifact is the contract.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">04</span>
+            <h4 class="note__h">Naming is the most under-estimated design work in AI platforms.</h4>
+            <p class="prose">
+              Renaming <code>getchunksfromQdrant</code> to “Contract Clause Lookup” is the difference
+              between a tool a procurement person adopts and one they file a ticket about.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ up next ════════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">up next</span>
+        <span class="band__count">02 of 02</span>
+      </div>
+      <div class="band__body">
+        <a class="next rise" href="cs-ok.html">
+          <div class="next__grid">
+            <div>
+              <h2 class="next__title">One Kiraana</h2>
+              <p class="next__desc">Kirana Store Admin System &amp; B2B Order App</p>
+              <ul class="next__tags">
+                <li class="next__tag">food</li>
+                <li class="next__tag">b2b</li>
+                <li class="next__tag">web &amp; phone</li>
+              </ul>
+              <span class="next__open">
+                read the case study
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                  <path d="M1 10 10 1M4 1h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+            <div class="next__art">
+              <canvas data-art="stock"></canvas>
+              <span class="next__art-label">stock matrix</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="soon rise">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          coming soon — health care · b2b
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ contact ════════════════════════════════════════════════════ -->
+  <section class="band" id="contact">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">contact</span>
+        <span class="band__count">15 min, free</span>
+      </div>
+      <div class="band__body">
+        <p class="contact__line rise">
+          thinking of something that could make the world a
+          <span class="em">better place?</span> let's talk<span class="pd">.</span>
+        </p>
+        <a class="btn btn--lg rise" href="https://calendly.com/krutikpatel347/15min?" target="_blank" rel="noopener">
+          <span class="btn__t">free 1:1</span>
+          <svg class="btn__arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+            <path d="M1 10 10 1M4 1h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__links">
+      <a class="foot__link" href="https://www.linkedin.com/in/krutikpatel28/" target="_blank" rel="noopener">linkedin<span class="pd">.</span></a>
+      <a class="foot__link" href="https://wa.me/917303066668?text=Hey!%20I%20just%20checked%20your%20website%20and%20wanted%20to%20talk%20to%20you." target="_blank" rel="noopener">whatsapp<span class="pd">.</span></a>
+      <a class="foot__link" href="https://x.com/krutikpatel28" target="_blank" rel="noopener">twitter<span class="pd">.</span></a>
+      <a class="foot__link" href="https://uxheap.framer.website/" target="_blank" rel="noopener">uxheap<span class="pd">.</span></a>
+    </div>
+    <p class="foot__note">© 2026 krutik patel &nbsp;●&nbsp; created with lots of procrastination 🥲 &amp; artificial intelligence ✦</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── scroll progress ───────────────────────────────────────────────── */
+  var bar = document.getElementById("progress"), ticking = false;
+  function drawProgress(){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+    bar.style.transform = "scaleX(" + p + ")";
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(drawProgress); }
+  }, {passive:true});
+  drawProgress();
+
+  /* ── reveals ───────────────────────────────────────────────────────── */
+  var rises = Array.prototype.slice.call(document.querySelectorAll(".rise"));
+  if(reduce || !("IntersectionObserver" in window)){
+    rises.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("is-in"); io.unobserve(en.target); }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:.05});
+    rises.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ── the next-case artwork, same piece as the index ────────────────── */
+  function rng(seed){
+    return function(){
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function fit(cv){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = cv.getBoundingClientRect();
+    if(!r.width) return null;
+    cv.width = Math.round(r.width * dpr);
+    cv.height = Math.round(r.height * dpr);
+    var ctx = cv.getContext("2d");
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    return {ctx:ctx, w:r.width, h:r.height};
+  }
+  function stock(){
+    var r = rng(20240318), t = 0, ROWS = 5;
+    var shelves = [];
+    for(var y = 0; y < ROWS; y++){
+      var items = [], used = 0;
+      while(used < .97){
+        var wdt = Math.min(.07 + r() * .13, 1 - used);
+        if(wdt < .035) break;
+        items.push({x:used, w:wdt, v:.12 + r() * .88, sp:.12 + r() * .4, ph:r() * 6.283});
+        used += wdt + .014;
+      }
+      shelves.push(items);
+    }
+    return function(f){
+      var ctx = f.ctx, w = f.w, h = f.h, pad = 20, padB = 32;
+      var iw = w - pad*2, rh = (h - pad - padB) / ROWS, gap = 13;
+      ctx.clearRect(0,0,w,h);
+      shelves.forEach(function(items, y){
+        var base = pad + (y + 1) * rh - gap;
+        var maxH = rh - gap - 3;
+        items.forEach(function(it){
+          var lvl = Math.max(.14, Math.min(1, it.v * .86 + (Math.sin(t * it.sp + it.ph) * .5 + .5) * .14));
+          var bx = pad + it.x * iw, bw = it.w * iw, bh = maxH * lvl;
+          ctx.strokeStyle = "rgba(245,242,237,.13)";
+          ctx.lineWidth = 1;
+          ctx.strokeRect(bx + .5, base - maxH + .5, bw - 1, maxH - 1);
+          ctx.fillStyle = "rgba(245,242,237," + (.10 + lvl * .34).toFixed(3) + ")";
+          ctx.fillRect(bx, base - bh, bw, bh);
+        });
+        ctx.fillStyle = "rgba(245,242,237,.34)";
+        ctx.fillRect(pad, base, iw, 1);
+      });
+      if(!reduce) t += 0.014;
+    };
+  }
+
+  var pieces = [];
+  document.querySelectorAll("canvas[data-art]").forEach(function(cv){
+    var draw = stock();
+    var frame = fit(cv);
+    var piece = {cv:cv, draw:draw, frame:frame, live:false};
+    if(frame) draw(frame);
+    pieces.push(piece);
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ piece.live = e.isIntersecting; });
+      }, {threshold:.05}).observe(cv);
+    } else { piece.live = true; }
+  });
+  if(pieces.length && !reduce){
+    (function loop(){
+      pieces.forEach(function(p){ if(p.live && p.frame) p.draw(p.frame); });
+      requestAnimationFrame(loop);
+    })();
+  }
+  var art;
+  window.addEventListener("resize", function(){
+    clearTimeout(art);
+    art = setTimeout(function(){
+      pieces.forEach(function(p){ p.frame = fit(p.cv); if(p.frame) p.draw(p.frame); });
+    }, 160);
+  });
+})();
+</script>
+</body>
+</html>

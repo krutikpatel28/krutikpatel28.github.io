@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>One Kiraana — Three Surfaces. One Godown. Zero Paper.</title>
+<meta name="description" content="A kirana wholesale operation moved off pen, paper and WhatsApp onto three connected surfaces: an admin console, a worker view, and a B2B customer app." />
+<meta name="color-scheme" content="dark" />
+<meta property="og:title" content="One Kiraana — Three Surfaces. One Godown. Zero Paper." />
+<meta property="og:type" content="article" />
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   krutik patel — case study: qi studio
+   ───────────────────────────────────────────────────────────────────────────
+   Same system as the index. The one idea added here: every figure in the
+   source material is printed on near-white, so the figures are treated as
+   paper PLATES mounted on the dark page — a monograph, with the dark hero
+   shot as its cover. Plates are numbered, because the argument is a sequence.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --ink-0:#f5f2ed;
+  --ink-1:#b8b4ad;
+  --ink-2:#8b8880;
+  --ink-3:#57544f;
+
+  --ground:#08080a;
+  --surface:#0d0d11;
+  --surface-2:#131318;
+  --rule:#1d1d22;
+  --rule-strong:#31313a;
+
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI Variable Display","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:ui-serif,"New York","Iowan Old Style","Hoefler Text","Palatino Linotype",Palatino,Georgia,serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,"Cascadia Mono",Consolas,"Liberation Mono",monospace;
+
+  --gutter:clamp(20px,5vw,88px);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:96px;
+}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink-0);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+.atmos,
+.grain{position:fixed;inset:0;pointer-events:none}
+.atmos{
+  z-index:0;
+  background:radial-gradient(115% 70% at 50% -12%,#191920 0%,#0c0c10 42%,var(--ground) 78%);
+}
+.grain{
+  z-index:9999;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.shell{position:relative;z-index:1}
+
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px solid var(--ink-0);outline-offset:4px;border-radius:2px}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:10000;
+  padding:12px 18px;background:var(--ink-0);color:var(--ground);
+  font-family:var(--mono);font-size:12px;
+}
+.skip:focus{left:var(--gutter);top:12px}
+
+.pd{color:var(--ink-3)}
+.band__name,
+.btn__t{white-space:nowrap}
+.band__name .pd,
+.btn__t .pd{font-family:var(--sans);letter-spacing:0;margin-left:-.3em}
+.btn__t .pd{color:currentColor;opacity:.45}
+
+/* ═══ nav ═══════════════════════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:color-mix(in srgb,var(--ground) 82%,transparent);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  backdrop-filter:blur(14px) saturate(120%);
+  border-bottom:1px solid var(--rule);
+}
+.nav__inner{
+  max-width:1560px;margin:0 auto;padding:0 var(--gutter);
+  height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav__mark{font-size:19px;font-weight:500;letter-spacing:-.03em;display:inline-flex;align-items:baseline}
+.nav__menu{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+.nav__link{
+  font-size:14.5px;letter-spacing:-.01em;color:var(--ink-1);
+  transition:color .3s var(--ease);position:relative;padding:6px 0;
+}
+.nav__link:hover{color:var(--ink-0)}
+.nav__link::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--ink-0);transform:scaleX(0);transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.nav__link:hover::after{transform:scaleX(1)}
+
+.nav__cta{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--rule-strong);border-radius:999px;padding:9px 17px;color:var(--ink-0);
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease);
+}
+.nav__cta:hover{background:var(--ink-0);border-color:var(--ink-0);color:var(--ground)}
+.nav__cta-dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:breathe 3.4s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* On a long read the progress hairline stops being decoration and starts
+   answering "how much of this is left?" */
+.nav__progress{
+  position:absolute;left:0;bottom:-1px;height:1px;width:100%;
+  background:var(--ink-0);transform:scaleX(0);transform-origin:left;
+}
+
+/* ═══ layout primitives ═════════════════════════════════════════════════ */
+.wrap{max-width:1560px;margin:0 auto;padding:0 var(--gutter)}
+.band{border-top:1px solid var(--rule)}
+.band__inner{
+  max-width:1560px;margin:0 auto;padding:clamp(56px,8vw,132px) var(--gutter);
+  display:grid;grid-template-columns:1fr;gap:clamp(26px,4vw,56px);
+}
+@media(min-width:900px){
+  .band__inner{grid-template-columns:190px minmax(0,1fr);gap:clamp(40px,6vw,96px)}
+}
+.band__label{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-1);display:flex;align-items:baseline;gap:12px;
+}
+@media(min-width:900px){
+  .band__label{position:sticky;top:104px;align-self:start;display:block}
+}
+.band__count{display:block;color:var(--ink-3);margin-top:0;font-variant-numeric:tabular-nums}
+@media(min-width:900px){.band__count{margin-top:10px}}
+.band__body{min-width:0}
+
+.h2{
+  font-size:clamp(2.1rem,5.2vw,3.7rem);
+  font-weight:300;letter-spacing:-.038em;line-height:1.02;
+  margin:0 0 clamp(24px,3vw,44px);text-wrap:balance;
+}
+.em{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  color:var(--ink-0);letter-spacing:-.01em;
+  white-space:nowrap;   /* an italic phrase breaks badly mid-way; keep it whole */
+}
+
+/* body copy — one measure, used everywhere */
+.prose{
+  font-size:clamp(1rem,1.35vw,1.14rem);
+  line-height:1.68;color:var(--ink-1);
+  max-width:64ch;margin:0 0 1.15em;
+}
+.prose:last-child{margin-bottom:0}
+.prose strong{color:var(--ink-0);font-weight:500}
+.prose code{
+  font-family:var(--mono);font-size:.86em;color:var(--ink-0);
+  background:var(--surface-2);border:1px solid var(--rule);
+  border-radius:3px;padding:.12em .4em;
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ground);background:var(--ink-0);
+  border:1px solid var(--ink-0);border-radius:999px;padding:13px 22px;
+  transition:transform .45s var(--ease),background .35s var(--ease),color .35s var(--ease);
+}
+.btn:hover{transform:translateY(-2px);background:#fff;border-color:#fff}
+.btn__arrow{transition:transform .45s var(--ease)}
+.btn:hover .btn__arrow{transform:translate(3px,-3px)}
+.btn--ghost{background:none;color:var(--ink-0);border-color:var(--rule-strong)}
+.btn--ghost:hover{background:var(--ink-0);color:var(--ground);border-color:var(--ink-0)}
+.btn--lg{font-size:12.5px;padding:17px 28px}
+
+/* ═══ hero ══════════════════════════════════════════════════════════════ */
+.hero{
+  container-type:inline-size;
+  padding-top:calc(68px + clamp(40px,7vh,88px));
+  padding-bottom:clamp(40px,6vw,80px);
+}
+.back{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:clamp(26px,4vw,52px);
+  transition:color .35s var(--ease);
+}
+.back:hover{color:var(--ink-0)}
+.back__arrow{transition:transform .45s var(--ease)}
+.back:hover .back__arrow{transform:translateX(-4px)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-2);display:block;margin-bottom:16px;
+}
+
+/* Two lines, each fitted flush to the measure — the same masthead device as
+   the index. The divisors are the measured run-width of each line at its own
+   font-size, so both edges land on the margin. */
+.cs-title{
+  margin:0;font-weight:300;letter-spacing:-.045em;line-height:.94;
+  white-space:nowrap;
+  font-size:clamp(2rem,9vw,7rem);
+}
+/* Each line carries its own divisor — its measured run-width per unit of
+   font-size — so both lines land flush on the measure and the pair reads as
+   one justified block. True at every width, so no breakpoint is needed. */
+.cs-title__l{display:block}
+.cs-title__l:nth-of-type(1){font-size:calc(100cqw / 6.06)}  /* Three Surfaces. */
+.cs-title__l:nth-of-type(2){font-size:calc(100cqw / 5.48)}  /* One Godown.     */
+.cs-title__l:nth-of-type(3){font-size:calc(100cqw / 4.42)}  /* Zero Paper.     */
+.cs-rule{height:1px;background:var(--rule-strong);margin-top:clamp(18px,2.4vw,30px)}
+
+.hero__lower{
+  display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,52px);
+  margin-top:clamp(28px,4vw,52px);
+}
+@media(min-width:900px){
+  .hero__lower{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .lede{grid-column:2}
+}
+.lede{
+  font-size:clamp(1.2rem,2.1vw,1.8rem);
+  font-weight:300;line-height:1.42;letter-spacing:-.02em;
+  color:var(--ink-1);max-width:34ch;margin:0;
+}
+
+/* the spec strip — who, when, what, on what */
+.facts{
+  --fpad:clamp(18px,2.2vw,32px);
+  margin-top:clamp(34px,4.5vw,60px);
+  border-top:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+}
+@media(min-width:760px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* The rule sits on the LEFT of each cell and every cell is inset on both
+   sides, so text never touches a divider. The cell that opens a row drops
+   both, keeping it flush with the page margin like everything else. */
+.fact{
+  padding:20px var(--fpad) 0;
+  border-left:1px solid var(--rule);
+}
+@media(max-width:759px){
+  .fact:nth-child(2n+1){border-left:0;padding-left:0}
+  .fact:nth-child(n+3){padding-top:26px}
+}
+@media(min-width:760px){
+  .fact:nth-child(4n+1){border-left:0;padding-left:0}
+}
+.fact__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:8px;
+}
+.fact__v{font-size:14.5px;color:var(--ink-1);line-height:1.45}
+
+/* ═══ plates — the figures ══════════════════════════════════════════════
+   Every source figure is printed on near-white, so rather than fight that,
+   the page mounts them as paper. The cover shot is dark, so it gets a dark
+   mount and reads as a cover rather than a plate. */
+/* Sources are 920px native, so plates stop there rather than upscaling to a
+   1300px column. The square role diagram gets its own, much smaller cap —
+   at full width it would stand over a thousand pixels tall. */
+.plate{margin:clamp(28px,3.4vw,48px) 0 0;max-width:1040px}
+.plate--sm{max-width:470px}
+.plate--cover{max-width:none}
+.plate:first-child{margin-top:0}
+.plate__frame{
+  background:var(--ink-0);
+  border:1px solid var(--rule-strong);
+  border-radius:4px;overflow:hidden;line-height:0;
+}
+.plate__frame img{display:block;width:100%;height:auto}
+.plate--cover .plate__frame{background:var(--surface);border-color:var(--rule)}
+.plate__cap{
+  margin-top:12px;display:flex;gap:12px;align-items:baseline;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-2);
+}
+.plate__no{color:var(--ink-3);flex:none;font-variant-numeric:tabular-nums}
+
+/* ═══ challenges ════════════════════════════════════════════════════════ */
+.chal{padding:clamp(34px,4.5vw,64px) 0 0;border-top:1px solid var(--rule);margin-top:clamp(34px,4.5vw,64px)}
+.chal:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.chal__idx{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:14px;font-variant-numeric:tabular-nums;
+}
+.chal__h{
+  font-size:clamp(1.5rem,3vw,2.3rem);
+  font-weight:300;letter-spacing:-.03em;line-height:1.12;
+  margin:0 0 clamp(22px,2.6vw,34px);text-wrap:balance;
+}
+.pm{display:grid;grid-template-columns:1fr;gap:clamp(22px,3vw,46px)}
+@media(min-width:820px){.pm{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pm__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);display:flex;align-items:center;gap:11px;margin-bottom:13px;
+}
+.pm__k::after{content:"";flex:1;height:1px;background:var(--rule)}
+.pm .prose{max-width:46ch}
+
+/* ═══ the 5.x moves ═════════════════════════════════════════════════════ */
+.move{padding:clamp(38px,5vw,72px) 0 0;border-top:1px solid var(--rule);margin-top:clamp(38px,5vw,72px)}
+.move__h{
+  font-size:clamp(1.5rem,3vw,2.3rem);
+  font-weight:300;letter-spacing:-.03em;line-height:1.12;margin:0;text-wrap:balance;
+}
+.move__sub{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.05rem,1.7vw,1.32rem);
+  color:var(--ink-1);margin:12px 0 clamp(20px,2.4vw,30px);
+}
+
+/* ═══ quotes ════════════════════════════════════════════════════════════ */
+.quote{margin:clamp(34px,4.5vw,64px) 0 0;padding:0;border-left:1px solid var(--rule-strong);padding-left:clamp(20px,3vw,40px)}
+.quote__t{
+  font-family:var(--serif);
+  font-size:clamp(1.25rem,2.4vw,2rem);
+  line-height:1.44;letter-spacing:-.015em;color:var(--ink-0);
+  margin:0;max-width:34ch;
+}
+.quote__a{
+  display:block;margin-top:20px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);font-style:normal;
+}
+
+/* ═══ outcome lists & metrics ═══════════════════════════════════════════ */
+.notes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:0}
+.note{border-top:1px solid var(--rule);padding:clamp(20px,2.6vw,30px) 0}
+.note:first-child{border-top:0;padding-top:0}
+.note__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:11px;font-variant-numeric:tabular-nums;
+}
+.note__h{
+  font-size:clamp(1.1rem,1.85vw,1.42rem);
+  font-weight:300;letter-spacing:-.022em;line-height:1.28;
+  color:var(--ink-0);margin:0 0 10px;max-width:44ch;
+}
+.note .prose{max-width:58ch;margin:0}
+
+.stats{
+  display:grid;grid-template-columns:1fr;
+  border-top:1px solid var(--rule);
+}
+@media(min-width:820px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.stat{
+  padding:clamp(22px,2.8vw,32px) 0;border-bottom:1px solid var(--rule);
+}
+@media(min-width:820px){
+  .stat{border-bottom:0;border-right:1px solid var(--rule);padding-right:clamp(20px,2.6vw,40px)}
+  .stat + .stat{padding-left:clamp(20px,2.6vw,40px)}
+  .stat:last-child{border-right:0}
+}
+.stat__k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);display:block;margin-bottom:14px;
+}
+.stat__v{
+  font-size:clamp(1.7rem,3.2vw,2.5rem);
+  font-weight:300;letter-spacing:-.035em;line-height:1;
+  color:var(--ink-0);display:block;margin-bottom:14px;
+  font-variant-numeric:tabular-nums;
+}
+.stat__d{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0;max-width:34ch}
+
+/* ═══ up next ═══════════════════════════════════════════════════════════ */
+.next{display:block;position:relative}
+.next__grid{display:grid;grid-template-columns:1fr;gap:clamp(22px,3vw,44px);align-items:center}
+@media(min-width:820px){.next__grid{grid-template-columns:minmax(0,1fr) minmax(0,.86fr)}}
+.next__title{
+  font-size:clamp(1.85rem,4.2vw,3.1rem);
+  font-weight:300;letter-spacing:-.038em;line-height:1.03;margin:0;
+  display:inline-block;position:relative;
+}
+.next__title::after{
+  content:"";position:absolute;left:0;right:0;bottom:-.08em;height:1px;
+  background:var(--ink-2);transform:scaleX(0);transform-origin:left;
+  transition:transform .6s var(--ease);
+}
+.next:hover .next__title::after{transform:scaleX(1)}
+.next__desc{margin:16px 0 0;color:var(--ink-2);font-size:clamp(.95rem,1.35vw,1.08rem);line-height:1.55;max-width:44ch}
+.next__tags{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0 0;padding:0;list-style:none}
+.next__tag{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;
+  transition:border-color .4s var(--ease),color .4s var(--ease);
+}
+.next:hover .next__tag{border-color:var(--rule-strong);color:var(--ink-1)}
+.next__open{
+  margin-top:26px;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-1);
+}
+.next__open svg{transition:transform .5s var(--ease)}
+.next:hover .next__open svg{transform:translate(4px,-4px)}
+.next__art{
+  position:relative;aspect-ratio:16/10;background:var(--surface);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+  transition:border-color .5s var(--ease);
+}
+.next:hover .next__art{border-color:var(--rule-strong)}
+.next__art canvas{display:block;width:100%;height:100%;opacity:.62;transition:opacity .6s var(--ease)}
+.next:hover .next__art canvas{opacity:1}
+.next__art-label{
+  position:absolute;left:14px;bottom:12px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+.soon{
+  border-top:1px dashed var(--rule);margin-top:clamp(28px,3.4vw,44px);
+  padding-top:clamp(28px,3.4vw,44px);
+  display:flex;align-items:center;gap:14px;color:var(--ink-3);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+}
+.soon .dots{display:inline-flex;gap:5px}
+.soon .dots i{width:4px;height:4px;border-radius:50%;background:var(--ink-3);animation:pulse 1.5s ease-in-out infinite}
+.soon .dots i:nth-child(2){animation-delay:.2s}
+.soon .dots i:nth-child(3){animation-delay:.4s}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* ═══ contact + footer ══════════════════════════════════════════════════ */
+.contact__line{
+  font-size:clamp(1.9rem,5.2vw,4rem);
+  font-weight:300;letter-spacing:-.04em;line-height:1.06;
+  margin:0 0 clamp(30px,4vw,52px);max-width:19ch;text-wrap:balance;
+}
+.foot{border-top:1px solid var(--rule)}
+.foot__inner{
+  max-width:1560px;margin:0 auto;
+  padding:clamp(28px,3.5vw,44px) var(--gutter) clamp(34px,4vw,54px);
+  display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
+}
+.foot__links{display:flex;flex-wrap:wrap;gap:clamp(14px,2.4vw,30px)}
+.foot__link{font-size:14.5px;color:var(--ink-1);position:relative;padding-bottom:3px;transition:color .35s var(--ease)}
+.foot__link:hover{color:var(--ink-0)}
+.foot__link::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--ink-0);transform:scaleX(0);transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.foot__link:hover::after{transform:scaleX(1)}
+.foot__note{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--ink-3);line-height:1.7}
+
+/* ═══ reveals ═══════════════════════════════════════════════════════════ */
+.rise{opacity:0;transform:translateY(16px)}
+.is-in{opacity:1;transform:none;transition:opacity .95s var(--ease),transform .95s var(--ease)}
+[data-seq]{transition-delay:calc(var(--i,0) * 80ms)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .rise{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+<div class="atmos" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<a class="skip" href="#overview">skip to the case study</a>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__mark" href="index.html" aria-label="krutik patel, home">kp<span class="pd">.</span></a>
+    <nav class="nav__menu" aria-label="sections">
+      <a class="nav__link" href="index.html#work">work<span class="pd">.</span></a>
+      <a class="nav__link" href="#contact">contact<span class="pd">.</span></a>
+      <a class="nav__cta" href="https://calendly.com/krutikpatel347/15min?" target="_blank" rel="noopener">
+        <span class="nav__cta-dot" aria-hidden="true"></span>free 1:1
+      </a>
+    </nav>
+  </div>
+  <div class="nav__progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main class="shell" id="top">
+
+  <!-- ═══ hero ═══════════════════════════════════════════════════════ -->
+  <section class="wrap hero">
+    <a class="back rise" data-seq style="--i:0" href="index.html#work">
+      <svg class="back__arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+        <path d="M10 5.5H1M5 1 1 5.5 5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
+      </svg>
+      back to work
+    </a>
+
+    <span class="eyebrow rise" data-seq style="--i:1">case study · one kiraana</span>
+
+    <h1 class="cs-title rise" data-seq style="--i:2" id="csTitle"
+      ><span class="cs-title__l">Three Surfaces.</span
+      ><span class="cs-title__l">One Godown.</span
+      ><span class="cs-title__l">Zero Paper.</span
+    ></h1>
+    <div class="cs-rule rise" data-seq style="--i:3" aria-hidden="true"></div>
+
+    <div class="hero__lower">
+      <p class="lede rise" data-seq style="--i:4">
+        Kirana Store Admin System &amp; <span class="em">B2B Order App.</span>
+      </p>
+    </div>
+
+    <dl class="facts rise">
+      <div class="fact">
+        <dt class="fact__k">shipped</dt>
+        <dd class="fact__v" style="margin:0">Feb 2025</dd>
+      </div>
+      <div class="fact">
+        <dt class="fact__k">domain</dt>
+        <dd class="fact__v" style="margin:0">Kirana wholesale · B2B</dd>
+      </div>
+      <div class="fact">
+        <dt class="fact__k">my role</dt>
+        <dd class="fact__v" style="margin:0">Co-lead UX — IA, interaction, design system</dd>
+      </div>
+      <div class="fact">
+        <dt class="fact__k">surfaces</dt>
+        <dd class="fact__v" style="margin:0">Web · Tablet · Mobile</dd>
+      </div>
+    </dl>
+
+    <figure class="plate plate--cover rise" style="margin-top:clamp(40px,5vw,72px)">
+      <div class="plate__frame">
+        <img src="assets/ok/01-hero.png" width="2128" height="990"
+             alt="Three device surfaces side by side: the B2B customer app, the admin console, and the worker view." />
+      </div>
+      <figcaption class="plate__cap">
+        <span class="plate__no">cover</span>
+        <span>Three surfaces over one data model — customer app, admin console, worker view.</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ═══ 01 overview ════════════════════════════════════════════════ -->
+  <section class="band" id="overview">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">01 · overview</span>
+        <span class="band__count">the premise</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">The Last Manual Mile<span class="pd">.</span></h2>
+        <p class="prose rise">
+          India's kirana wholesale economy moves more groceries than most countries' organised
+          retail combined. It also runs almost entirely on pen, paper, and WhatsApp. Only the
+          invoice was ever digital.
+        </p>
+        <p class="prose rise">
+          This case study walks through how we designed three connected surfaces — an Admin
+          Console, a Worker View, and a B2B Customer App — to bring inventory, storage, and
+          ordering operations onto a single, real-time system.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 02 role ════════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">02 · role</span>
+        <span class="band__count">co-lead ux</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Three Surfaces, One Operation<span class="pd">.</span></h2>
+        <p class="prose rise">
+          I co-led the UX for this product with another designer. Between us we owned the full
+          system: information architecture, interaction patterns, visual design, and the design
+          system that holds it together.
+        </p>
+        <p class="prose rise">
+          What made this project unusual wasn't the scope — it was the cognitive distance between
+          the users. We were designing for three completely different humans, working in three
+          completely different conditions, looking at the same underlying data.
+        </p>
+        <p class="prose rise">
+          I worked alongside the business owner, a PM, a developer, my design counterpart, and —
+          most importantly — the field stakeholders. Most of the real design decisions were made on
+          the godown floor, not in Figma.
+        </p>
+
+        <figure class="plate plate--sm rise">
+          <div class="plate__frame">
+            <img src="assets/ok/02-role.svg" width="520" height="520"
+                 alt="Isometric diagram of one operation split across three surfaces: a desktop admin console, a tablet worker view and a mobile customer app, over one shared data model." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 01</span>
+            <span>One operation, three deliberately different surfaces.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 03 challenges ══════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">03 · key challenges</span>
+        <span class="band__count">04 problems</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Pen, Paper, Pain<span class="pd">.</span></h2>
+        <p class="prose rise">
+          The admin backend was almost entirely manual. Only the final invoice was digital.
+          Everything before that — receiving sacks of atta, weighing each lot, slotting them into a
+          rack, picking against an order, dispatching — lived in a paper ledger and in the head of
+          whoever was on shift that day.
+        </p>
+        <p class="prose rise">That fragility shows up in four predictable ways.</p>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 01</span>
+          <h3 class="chal__h">Stock vanishes between receipt and rack.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                Bulk grocery is sold and consumed by weight, not by unit. A 50 kg sack of toor dal
+                becomes a hundred different invoices over a fortnight. Manual ledgers can't keep up
+                — and small losses compound silently. Industry estimates put inventory shrinkage in
+                unorganised B2B wholesale at 5–10%.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                A real-time, weight-aware stock ledger. Every receipt, every pick, every dispatch
+                updates a single source of truth — measured in <strong>kilograms first, packs
+                second</strong>.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/03-ch1-stock-ledger.svg" width="880" height="420"
+                   alt="Diagram: a sack weighed in at 50.0 kg against 46.4 kg found on the rack, a 3.6 kg unaccounted gap, and 7% silent shrinkage per sack per fortnight against an industry range of 5–10%." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 02</span>
+              <span>50 kg in, 46.4 kg on the rack — the loss a paper ledger never sees.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 02</span>
+          <h3 class="chal__h">The godown is a memory palace.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                Workers knew the godown the way you know your kitchen. Which rack the basmati lives
+                on, which lot is closer to expiry — all of it sat in long-term human memory. When
+                the worker took a leave, the system went down.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                A digitised <strong>Godown Grid</strong> — every rack and batch becomes a tappable
+                cell with weight, lot date, and pick priority. Memory moves from the worker to the
+                screen.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/04-ch2-godown-grid.svg" width="880" height="540"
+                   alt="The Godown Grid: racks and batches as tappable cells carrying weight, lot date and pick priority." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 03</span>
+              <span>The Godown Grid — the racking plan, made legible on a screen.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 03</span>
+          <h3 class="chal__h">Orders live on WhatsApp.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                Small kiranas placed orders through phone calls and message threads. Confirmations,
+                edits, delivery times, and quality complaints all happened in scattered chats.
+                Owners spent hours every morning translating those threads into the day's pick list.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                A B2B Customer App that turns ordering, status, and delivery scheduling into a
+                single, status-first flow. Edits and cancellations replace messages.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/05-ch3-orders.svg" width="880" height="560"
+                   alt="Before and after: a WhatsApp order thread of five messages over 26 minutes leaving no record, against the customer app showing order #522 with a four-step status timeline and an audit trail." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 04</span>
+              <span>Five messages over 26 minutes with no record, against one flow in under two.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">challenge 04</span>
+          <h3 class="chal__h">Workers don't read English.</h3>
+          <div class="pm">
+            <div>
+              <div class="pm__k">the pain</div>
+              <p class="prose">
+                The frontline workforce is multilingual, often more fluent in Hindi or a regional
+                language than in English. Most off-the-shelf inventory tools assume English fluency
+                and dense text. That gap was the single biggest reason past digitisation attempts
+                had failed.
+              </p>
+            </div>
+            <div>
+              <div class="pm__k">the move</div>
+              <p class="prose">
+                A language-first worker interface — short glanceable labels, large numerics,
+                iconography that survives translation. English is one option, not the default.
+              </p>
+            </div>
+          </div>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/06-ch4-language.svg" width="880" height="500"
+                   alt="Diagram: the Devanagari label आटा glossed as ATTA wheat flour, a Hindi–English script toggle, and a worker's pick screen rendered in Hindi." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 05</span>
+              <span>English is a toggle, not a baseline — the default build ships in the regional script.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="chal rise">
+          <span class="chal__idx">framework</span>
+          <h3 class="chal__h">The Three-Surface Model</h3>
+          <p class="prose">
+            These four challenges aren't independent — they're symptoms of one structural mismatch.
+            We named the response The Three-Surface Model: one shared data model, three deliberately
+            different surfaces, each tuned to a specific cognitive profile and physical context.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/07-three-surface-model.svg" width="880" height="560"
+                   alt="The Three-Surface Model: one shared data model feeding an admin console, a worker view and a customer app." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 06</span>
+              <span>One data model, three surfaces, three cognitive profiles.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 process ═════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">04 · process</span>
+        <span class="band__count">03 field visits</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Boots on the Godown Floor<span class="pd">.</span></h2>
+        <p class="prose rise">
+          We didn't begin in Figma. We began with three field visits to live wholesale operations —
+          godowns, dispatch areas, customer kiranas — and a notebook each.
+        </p>
+
+        <blockquote class="quote rise">
+          <p class="quote__t">Watching is the work.</p>
+        </blockquote>
+
+        <p class="prose rise" style="margin-top:clamp(28px,3.4vw,44px)">
+          We saw a worker carry a 25 kg bag and a phone in the same hand. We saw an owner argue with
+          a customer over a 200 g discrepancy that no system could prove. None of that lives on a
+          Figma board.
+        </p>
+
+        <figure class="plate rise">
+          <div class="plate__frame">
+            <img src="assets/ok/08-process.svg" width="880" height="540"
+                 alt="Circular diagram of a four-step discovery loop: observe on the floor, map the operation, borrow from adjacent industries, validate with the same workers — repeated for every feature." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 07</span>
+            <span>Field-first discovery — a loop repeated per feature, not a phase run once.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05 ux design ═══════════════════════════════════════════════ -->
+  <section class="band" id="design">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">05 · ux design</span>
+        <span class="band__count">03 surfaces</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Designing for Calloused Hands<span class="pd">.</span></h2>
+        <p class="prose rise">
+          The Worker View was the hardest surface to get right, and the surface that decides whether
+          the whole system works. If the warehouse floor rejects it, the data downstream is fiction.
+          If they adopt it, every other screen becomes credible.
+        </p>
+
+        <figure class="plate rise">
+          <div class="plate__frame">
+            <img src="assets/ok/09-worker-first.svg" width="880" height="620"
+                 alt="Six principle cards for the godown floor: language first, weight is the unit, big targets, status before everything, glanceable hierarchy, and forgive the mistake." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 08</span>
+            <span>Six rules for the godown floor — the principles that carry the Worker View.</span>
+          </figcaption>
+        </figure>
+
+        <article class="move rise">
+          <span class="chal__idx">surface 01 · desktop</span>
+          <h3 class="move__h">Admin Console</h3>
+          <p class="move__sub">The Control Tower</p>
+          <p class="prose">
+            Built for an owner or manager scanning the operation in a morning sweep: how much stock
+            came in, what's in motion, what's stuck, what's been billed. The IA splits into seven
+            entities — Dashboard, Orders, Catalogue, Inventory, Customers, Payment, Equipment — each
+            behaving like a self-contained module.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/10-admin-console.svg" width="1080" height="720"
+                   alt="The Admin Console: a dashboard with seven modules covering orders, catalogue, inventory, customers, payment and equipment." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 09</span>
+              <span>Admin Console — seven self-contained modules, scanned in a morning sweep.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">surface 02 · tablet</span>
+          <h3 class="move__h">Worker View</h3>
+          <p class="move__sub">The Floor Instrument</p>
+          <p class="prose">
+            It runs on a tablet mounted on a picking trolley or a phone in a worker's pocket. Its
+            job is to hand a worker the next item, the next rack, and the next weight — and stay out
+            of the way. The picker flow is three screens deep.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/11-worker-view.svg" width="1080" height="720"
+                   alt="The Worker View: a three-screen picker flow showing the next item, the next rack and the next weight." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 10</span>
+              <span>Worker View — next item, next rack, next weight. Three screens deep.</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="move rise">
+          <span class="chal__idx">surface 03 · mobile</span>
+          <h3 class="move__h">B2B Customer App</h3>
+          <p class="move__sub">The Buyer's Side</p>
+          <p class="prose">
+            The Customer App had to do something subtle: convince a kirana owner who's been ordering
+            by WhatsApp for fifteen years that an app is worth the friction. We optimised for three
+            actions, fast — order, track, repeat.
+          </p>
+          <figure class="plate">
+            <div class="plate__frame">
+              <img src="assets/ok/12-customer-app.svg" width="1180" height="720"
+                   alt="The B2B Customer App optimised for three actions: order, track and repeat." />
+            </div>
+            <figcaption class="plate__cap">
+              <span class="plate__no">fig. 11</span>
+              <span>B2B Customer App — order, track, repeat.</span>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 06 visual language ═════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">06 · visual language</span>
+        <span class="band__count">one system</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Legibility before personality<span class="pd">.</span></h2>
+        <p class="prose rise">
+          We anchored the visual system on legibility before craft. The result is intentionally
+          plain. The owner sees a clean dashboard, the worker sees a calm screen, the customer sees
+          a credible app. No surface is trying to be interesting.
+        </p>
+
+        <figure class="plate rise">
+          <div class="plate__frame">
+            <img src="assets/ok/13-visual-language.svg" width="880" height="720"
+                 alt="Visual language sheet: the Inter type scale with tabular numerals, a five-colour status palette with hex values, a line icon set at 24 and 32 px, and English against Hindi component widths." />
+          </div>
+          <figcaption class="plate__cap">
+            <span class="plate__no">fig. 12</span>
+            <span>The system sheet — type, status palette, icons at two optical sizes, and multilingual scaffolding.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 07 closing ═════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">07 · closing</span>
+        <span class="band__count">live, early</span>
+      </div>
+      <div class="band__body">
+        <h2 class="h2 rise">Still Iterating, Already Working<span class="pd">.</span></h2>
+        <p class="prose rise">
+          The system is live in early operations and we're iterating on real workflows every week.
+          We don't have final outcome metrics yet — but the early signal is qualitative, observable,
+          and consistent.
+        </p>
+
+        <blockquote class="quote rise">
+          <p class="quote__t">
+            For the first time, I don't have to call the godown to know what's in stock.
+          </p>
+          <cite class="quote__a">Business Owner · Internal Review</cite>
+        </blockquote>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">What's working.</h3>
+        <ol class="notes rise">
+          <li class="note">
+            <span class="note__k">working — 01</span>
+            <h4 class="note__h">Workers prefer the worker view to the paper register.</h4>
+            <p class="prose">
+              Adoption on the floor was the variable we worried about most. Anecdotally, workers
+              cite the Hindi-first UI and the large status pills as the reasons they didn't push
+              back.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">working — 02</span>
+            <h4 class="note__h">B2B customers place repeat orders without a phone call.</h4>
+            <p class="prose">
+              The pattern we hoped to break — WhatsApp threads as the order channel — is breaking.
+              Slowly, but in the right direction.
+            </p>
+          </li>
+        </ol>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">Projected impact.</h3>
+        <p class="prose rise" style="margin-bottom:clamp(24px,3vw,36px)">
+          Framed against industry benchmarks — targets, not measured results.
+        </p>
+        <div class="stats rise">
+          <div class="stat">
+            <span class="stat__k">inventory shrinkage</span>
+            <span class="stat__v">5–10%</span>
+            <p class="stat__d">
+              Typical in unorganised B2B grocery wholesale. Our weight-aware ledger is designed to
+              compress this materially as data accumulates.
+            </p>
+          </div>
+          <div class="stat">
+            <span class="stat__k">order placement</span>
+            <span class="stat__v">&lt; 2 min</span>
+            <p class="stat__d">
+              In-app order placement, down from a typical 4–6 message WhatsApp exchange. Status
+              replaces messages.
+            </p>
+          </div>
+          <div class="stat">
+            <span class="stat__k">language coverage</span>
+            <span class="stat__v">2 → n</span>
+            <p class="stat__d">
+              First-party Hindi at launch. Component system was built to absorb regional languages
+              without redesign.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">Winning moments.</h3>
+        <ol class="notes rise">
+          <li class="note">
+            <span class="note__k">01</span>
+            <h4 class="note__h">Earned trust on the floor.</h4>
+            <p class="prose">
+              The hardest stakeholder wasn't the owner or the PM — it was the worker who'd done this
+              job for ten years without a screen. Watching one of them check the rack number on the
+              tablet before walking to it was the moment the project felt real.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">02</span>
+            <h4 class="note__h">One system, three surfaces.</h4>
+            <p class="prose">
+              A single token set, one type scale, one icon library — across web admin, tablet
+              worker, and mobile customer.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">03</span>
+            <h4 class="note__h">Multilingual wasn't bolted on.</h4>
+            <p class="prose">
+              Every component was reviewed in both scripts during design, not localised afterwards.
+            </p>
+          </li>
+        </ol>
+
+        <h3 class="chal__h rise" style="margin-top:clamp(44px,5.5vw,80px)">Lessons learned.</h3>
+        <ol class="notes rise">
+          <li class="note">
+            <span class="note__k">01</span>
+            <h4 class="note__h">Field research is non-negotiable for systems like this.</h4>
+            <p class="prose">
+              Personas written in a meeting room would have produced a wrong product.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">02</span>
+            <h4 class="note__h">Density is contextual.</h4>
+            <p class="prose">
+              The admin loves it. The worker hates it. The same designer has to know when to add
+              information and when to subtract.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">03</span>
+            <h4 class="note__h">Designing for low-tech-affinity users is a senior skill.</h4>
+            <p class="prose">
+              The instinct to add features is the wrong instinct here. The right move is almost
+              always to remove a step or replace text with an icon.
+            </p>
+          </li>
+          <li class="note">
+            <span class="note__k">04</span>
+            <h4 class="note__h">The invoice was a clue.</h4>
+            <p class="prose">
+              The fact that only the invoice was digital told us the operation already knew where
+              digitisation pays off — they just hadn't found a way to extend it upstream.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ up next ════════════════════════════════════════════════════ -->
+  <section class="band">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">up next</span>
+        <span class="band__count">01 of 02</span>
+      </div>
+      <div class="band__body">
+        <a class="next rise" href="cs-qistudio.html">
+          <div class="next__grid">
+            <div>
+              <h2 class="next__title">Agent Builder Platform</h2>
+              <p class="next__desc">Qi Studio — GEP's AI agent and workflow platform</p>
+              <ul class="next__tags">
+                <li class="next__tag">ai</li>
+                <li class="next__tag">b2b</li>
+                <li class="next__tag">web</li>
+              </ul>
+              <span class="next__open">
+                read the case study
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                  <path d="M1 10 10 1M4 1h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+            <div class="next__art">
+              <canvas data-art="graph"></canvas>
+              <span class="next__art-label">agent graph</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="soon rise">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          coming soon — health care · b2b
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ contact ════════════════════════════════════════════════════ -->
+  <section class="band" id="contact">
+    <div class="band__inner">
+      <div class="band__label">
+        <span class="band__name">contact</span>
+        <span class="band__count">15 min, free</span>
+      </div>
+      <div class="band__body">
+        <p class="contact__line rise">
+          thinking of something that could make the world a
+          <span class="em">better place?</span> let's talk<span class="pd">.</span>
+        </p>
+        <a class="btn btn--lg rise" href="https://calendly.com/krutikpatel347/15min?" target="_blank" rel="noopener">
+          <span class="btn__t">free 1:1</span>
+          <svg class="btn__arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+            <path d="M1 10 10 1M4 1h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__links">
+      <a class="foot__link" href="https://www.linkedin.com/in/krutikpatel28/" target="_blank" rel="noopener">linkedin<span class="pd">.</span></a>
+      <a class="foot__link" href="https://wa.me/917303066668?text=Hey!%20I%20just%20checked%20your%20website%20and%20wanted%20to%20talk%20to%20you." target="_blank" rel="noopener">whatsapp<span class="pd">.</span></a>
+      <a class="foot__link" href="https://x.com/krutikpatel28" target="_blank" rel="noopener">twitter<span class="pd">.</span></a>
+      <a class="foot__link" href="https://uxheap.framer.website/" target="_blank" rel="noopener">uxheap<span class="pd">.</span></a>
+    </div>
+    <p class="foot__note">© 2026 krutik patel &nbsp;●&nbsp; created with lots of procrastination 🥲 &amp; artificial intelligence ✦</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── scroll progress ───────────────────────────────────────────────── */
+  var bar = document.getElementById("progress"), ticking = false;
+  function drawProgress(){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+    bar.style.transform = "scaleX(" + p + ")";
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(drawProgress); }
+  }, {passive:true});
+  drawProgress();
+
+  /* ── reveals ───────────────────────────────────────────────────────── */
+  var rises = Array.prototype.slice.call(document.querySelectorAll(".rise"));
+  if(reduce || !("IntersectionObserver" in window)){
+    rises.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("is-in"); io.unobserve(en.target); }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:.05});
+    rises.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ── the next-case artwork, same piece as the index ────────────────── */
+  function fit(cv){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = cv.getBoundingClientRect();
+    if(!r.width) return null;
+    cv.width = Math.round(r.width * dpr);
+    cv.height = Math.round(r.height * dpr);
+    var ctx = cv.getContext("2d");
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    return {ctx:ctx, w:r.width, h:r.height};
+  }
+
+  /* an agent graph: nodes on a loose grid, orthogonal edges,
+     a signal travelling the longest path. */
+  function graph(cv){
+    var nodes = [
+      {x:.10,y:.50},{x:.32,y:.22},{x:.32,y:.50},{x:.32,y:.79},
+      {x:.56,y:.35},{x:.56,y:.66},{x:.79,y:.50},{x:.93,y:.50}
+    ];
+    var edges = [[0,1],[0,2],[0,3],[1,4],[2,4],[2,5],[3,5],[4,6],[5,6],[6,7]];
+    var t = 0;
+
+    return function(f){
+      var ctx = f.ctx, w = f.w, h = f.h, pad = 22;
+      var X = function(n){ return pad + n.x * (w - pad*2); };
+      var Y = function(n){ return pad + n.y * (h - pad*2); };
+
+      ctx.clearRect(0,0,w,h);
+
+      // faint canvas dot-grid — the substrate an agent builder is drawn on
+      ctx.fillStyle = "rgba(245,242,237,.055)";
+      for(var gx = pad; gx < w - pad + 1; gx += 15){
+        for(var gy = pad; gy < h - pad + 1; gy += 15){
+          ctx.fillRect(gx, gy, 1, 1);
+        }
+      }
+
+      // orthogonal edges with a mid-way elbow
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "rgba(245,242,237,.20)";
+      edges.forEach(function(e){
+        var a = nodes[e[0]], b = nodes[e[1]];
+        var ax = X(a), ay = Y(a), bx = X(b), by = Y(b), mx = (ax + bx)/2;
+        ctx.beginPath();
+        ctx.moveTo(ax, ay);
+        ctx.lineTo(mx - 6, ay);
+        ctx.quadraticCurveTo(mx, ay, mx, ay + (by > ay ? 6 : -6));
+        ctx.lineTo(mx, by - (by > ay ? 6 : -6));
+        ctx.quadraticCurveTo(mx, by, mx + 6, by);
+        ctx.lineTo(bx, by);
+        ctx.stroke();
+      });
+
+      // a signal running the spine of the graph
+      var spine = [0,2,4,6,7];
+      var seg = Math.floor(t) % (spine.length - 1);
+      var k = t % 1;
+      var p = nodes[spine[seg]], q = nodes[spine[seg+1]];
+      var sx = X(p) + (X(q) - X(p)) * k, sy = Y(p) + (Y(q) - Y(p)) * k;
+      ctx.fillStyle = "rgba(245,242,237,.85)";
+      ctx.beginPath(); ctx.arc(sx, sy, 2.4, 0, 6.284); ctx.fill();
+
+      // nodes — hollow squares, the leaf node filled
+      nodes.forEach(function(n, i){
+        var x = X(n), y = Y(n), s = 9;
+        ctx.strokeStyle = "rgba(245,242,237,.42)";
+        ctx.fillStyle = "rgba(8,8,10,1)";
+        ctx.beginPath(); ctx.rect(x - s/2, y - s/2, s, s); ctx.fill(); ctx.stroke();
+        if(i === 0 || i === nodes.length - 1){
+          ctx.fillStyle = "rgba(245,242,237,.75)";
+          ctx.fillRect(x - 2, y - 2, 4, 4);
+        }
+      });
+
+      if(!reduce) t += 0.011;
+    };
+  }
+
+  var pieces = [];
+  document.querySelectorAll("canvas[data-art]").forEach(function(cv){
+    var draw = graph(cv);
+    var frame = fit(cv);
+    var piece = {cv:cv, draw:draw, frame:frame, live:false};
+    if(frame) draw(frame);
+    pieces.push(piece);
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ piece.live = e.isIntersecting; });
+      }, {threshold:.05}).observe(cv);
+    } else { piece.live = true; }
+  });
+  if(pieces.length && !reduce){
+    (function loop(){
+      pieces.forEach(function(p){ if(p.live && p.frame) p.draw(p.frame); });
+      requestAnimationFrame(loop);
+    })();
+  }
+  var art;
+  window.addEventListener("resize", function(){
+    clearTimeout(art);
+    art = setTimeout(function(){
+      pieces.forEach(function(p){ p.frame = fit(p.cv); if(p.frame) p.draw(p.frame); });
+    }, 160);
+  });
+})();
+</script>
+</body>
+</html>
