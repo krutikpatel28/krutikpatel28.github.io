@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="540" viewBox="0 0 880 540" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif" text-rendering="geometricPrecision">
+<rect x="0" y="0" width="880" height="540" rx="18" fill="#F7F7F5"/>
+<text x="440" y="42" font-size="10.5" font-weight="600" fill="#75756E" text-anchor="middle" letter-spacing="2.4">THE GODOWN GRID</text>
+<text x="440" y="78" font-size="25" font-weight="800" fill="#0F0F0E" text-anchor="middle" letter-spacing="-0.5">Memory moves from the worker to the screen.</text>
+<rect x="64" y="106" width="524" height="348" rx="18" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.6"/>
+<rect x="75" y="117" width="502" height="326" rx="9" fill="#F7F7F5" stroke="#E3E3DE" stroke-width="1"/>
+<path d="M 75 126 Q 75 117 84 117 L 568 117 Q 577 117 577 126 L 577 155 L 75 155 Z" fill="#FFFFFF"/>
+<line x1="75" y1="155" x2="577" y2="155" stroke="#E3E3DE" stroke-width="1"/>
+<text x="89" y="141" font-size="12.5" font-weight="700" fill="#0F0F0E" font-family="'Noto Sans Devanagari', 'Mangal', Inter, system-ui, sans-serif">गोदाम</text>
+<text x="126.24" y="141" font-size="12.5" font-weight="700" fill="#75756E" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif">· GODOWN B</text>
+<rect x="533" y="127" width="25.97" height="18" rx="9" fill="#F1F1ED" stroke="#CFCFC8" stroke-width="1"/>
+<text x="545.99" y="139.37" font-size="9.5" font-weight="700" fill="#0F0F0E" text-anchor="middle" letter-spacing="0.6" font-family="'Noto Sans Devanagari', 'Mangal', Inter, system-ui, sans-serif">हिं</text>
+<circle cx="509" cy="135" r="4.6" fill="none" stroke="#75756E" stroke-width="1.3"/>
+<line x1="512.4" y1="138.4" x2="516" y2="142" stroke="#75756E" stroke-width="1.3" stroke-linecap="round"/>
+<rect x="87" y="167" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="97" y="187" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">WHEAT</text>
+<text x="97" y="213" font-size="18" font-weight="800" fill="#0F0F0E">120<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="97" y="222" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="97" y="222" width="44.88" height="3" fill="#0F0F0E"/>
+<text x="97" y="237" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">A-1 · #4980</text>
+<rect x="208.5" y="167" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="218.5" y="187" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">TOOR</text>
+<text x="218.5" y="213" font-size="18" font-weight="800" fill="#0F0F0E">46<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="218.5" y="222" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="218.5" y="222" width="17.2" height="3" fill="#0F0F0E"/>
+<text x="218.5" y="237" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">A-2 · #5012</text>
+<rect x="330" y="167" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="340" y="187" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">CHANA</text>
+<text x="340" y="213" font-size="18" font-weight="800" fill="#0F0F0E">88<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="340" y="222" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="340" y="222" width="32.91" height="3" fill="#0F0F0E"/>
+<text x="340" y="237" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">A-3 · #4877</text>
+<rect x="451.5" y="167" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="461.5" y="187" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">BAJRA</text>
+<text x="461.5" y="213" font-size="18" font-weight="800" fill="#0F0F0E">62<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="461.5" y="222" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="461.5" y="222" width="23.19" height="3" fill="#0F0F0E"/>
+<text x="461.5" y="237" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">A-4 · #5033</text>
+<rect x="87" y="257.67" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="97" y="277.67" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">MASOOR</text>
+<text x="97" y="303.67" font-size="18" font-weight="800" fill="#0F0F0E">34<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="97" y="312.67" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="97" y="312.67" width="12.72" height="3" fill="#0F0F0E"/>
+<text x="97" y="327.67" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">B-1 · #5061</text>
+<rect x="208.5" y="257.67" width="113.5" height="82.67" rx="7" fill="#0F0F0E" stroke="#0F0F0E" stroke-width="1.6"/>
+<text x="218.5" y="277.67" font-size="9.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.7">RICE</text>
+<text x="218.5" y="303.67" font-size="18" font-weight="800" fill="#FFFFFF">204<tspan font-size="8.5" font-weight="600" fill="#B9B9B2"> kg</tspan></text>
+<rect x="218.5" y="312.67" width="93.5" height="3" fill="#3A3A37"/>
+<rect x="218.5" y="312.67" width="76.3" height="3" fill="#FFFFFF"/>
+<text x="218.5" y="327.67" font-size="8.5" font-weight="600" fill="#B9B9B2" letter-spacing="0.4">B-2 · #5104</text>
+<circle cx="309" cy="271.67" r="3.4" fill="#FFFFFF"/>
+<rect x="330" y="257.67" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="340" y="277.67" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">SUGAR</text>
+<text x="340" y="303.67" font-size="18" font-weight="800" fill="#0F0F0E">154<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="340" y="312.67" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="340" y="312.67" width="57.6" height="3" fill="#0F0F0E"/>
+<text x="340" y="327.67" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">B-3 · #5088</text>
+<rect x="451.5" y="257.67" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="461.5" y="277.67" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">SALT</text>
+<text x="461.5" y="303.67" font-size="18" font-weight="800" fill="#0F0F0E">72<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="461.5" y="312.67" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="461.5" y="312.67" width="26.93" height="3" fill="#0F0F0E"/>
+<text x="461.5" y="327.67" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">B-4 · #4931</text>
+<rect x="87" y="348.33" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="97" y="368.33" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">JEERA</text>
+<text x="97" y="394.33" font-size="18" font-weight="800" fill="#0F0F0E">18<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="97" y="403.33" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="97" y="403.33" width="6.73" height="3" fill="#0F0F0E"/>
+<text x="97" y="418.33" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">C-1 · #5119</text>
+<rect x="208.5" y="348.33" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="218.5" y="368.33" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">METHI</text>
+<text x="218.5" y="394.33" font-size="18" font-weight="800" fill="#0F0F0E">9<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="218.5" y="403.33" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="218.5" y="403.33" width="3.37" height="3" fill="#0F0F0E"/>
+<text x="218.5" y="418.33" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">C-2 · #5120</text>
+<rect x="330" y="348.33" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="340" y="368.33" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">HALDI</text>
+<text x="340" y="394.33" font-size="18" font-weight="800" fill="#0F0F0E">11<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="340" y="403.33" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="340" y="403.33" width="4.11" height="3" fill="#0F0F0E"/>
+<text x="340" y="418.33" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">C-3 · #5099</text>
+<rect x="451.5" y="348.33" width="113.5" height="82.67" rx="7" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="461.5" y="368.33" font-size="9.5" font-weight="700" fill="#0F0F0E" letter-spacing="0.7">MIRCHI</text>
+<text x="461.5" y="394.33" font-size="18" font-weight="800" fill="#0F0F0E">14<tspan font-size="8.5" font-weight="600" fill="#75756E"> kg</tspan></text>
+<rect x="461.5" y="403.33" width="93.5" height="3" fill="#F1F1ED"/>
+<rect x="461.5" y="403.33" width="5.24" height="3" fill="#0F0F0E"/>
+<text x="461.5" y="418.33" font-size="8.5" font-weight="600" fill="#75756E" letter-spacing="0.4">C-4 · #5121</text>
+<text x="612" y="140" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">ANATOMY OF A CELL</text>
+<rect x="612" y="156" width="204" height="124" rx="9" fill="#0F0F0E"/>
+<rect x="628" y="172" width="72" height="18" rx="9" fill="#FFFFFF"/>
+<text x="664" y="184.02" font-size="8.5" font-weight="700" fill="#0F0F0E" text-anchor="middle" letter-spacing="0.9">NEXT PICK</text>
+<text x="800" y="185" font-size="9" font-weight="700" fill="#B9B9B2" text-anchor="end" letter-spacing="0.8">B-2 · #5104</text>
+<text x="628" y="222" font-size="13" font-weight="700" fill="#FFFFFF" letter-spacing="0.8">RICE</text>
+<text x="628" y="256" font-size="30" font-weight="800" fill="#FFFFFF" letter-spacing="-1">204<tspan font-size="12" font-weight="600" fill="#B9B9B2"> kg</tspan></text>
+<rect x="628" y="264" width="172" height="4" rx="2" fill="#3A3A37"/>
+<rect x="628" y="264" width="140.35" height="4" rx="2" fill="#FFFFFF"/>
+<text x="612" y="310" font-size="10" font-weight="700" fill="#75756E" letter-spacing="1">01</text>
+<text x="638" y="310" font-size="11.5" font-weight="700" fill="#0F0F0E">Weight first</text>
+<text x="638" y="325" font-size="10" font-weight="400" fill="#75756E">Kilograms as the headline</text>
+<text x="638" y="338" font-size="10" font-weight="400" fill="#75756E">numeral; packs are metadata.</text>
+<text x="612" y="364" font-size="10" font-weight="700" fill="#75756E" letter-spacing="1">02</text>
+<text x="638" y="364" font-size="11.5" font-weight="700" fill="#0F0F0E">Rack + batch</text>
+<text x="638" y="379" font-size="10" font-weight="400" fill="#75756E">Every cell carries its rack</text>
+<text x="638" y="392" font-size="10" font-weight="400" fill="#75756E">address and lot number.</text>
+<text x="612" y="418" font-size="10" font-weight="700" fill="#75756E" letter-spacing="1">03</text>
+<text x="638" y="418" font-size="11.5" font-weight="700" fill="#0F0F0E">Pick priority</text>
+<text x="638" y="433" font-size="10" font-weight="400" fill="#75756E">Oldest lot surfaces first and</text>
+<text x="638" y="446" font-size="10" font-weight="400" fill="#75756E">stays highlighted.</text>
+<text x="440" y="508" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle" font-style="italic">Every rack and batch becomes a tappable cell carrying weight, lot date and pick priority.</text>
+</svg>

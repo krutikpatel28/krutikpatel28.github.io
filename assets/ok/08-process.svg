@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="540" viewBox="0 0 880 540" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif" text-rendering="geometricPrecision">
+<rect x="0" y="0" width="880" height="540" rx="18" fill="#F7F7F5"/>
+<text x="440" y="42" font-size="10.5" font-weight="600" fill="#75756E" text-anchor="middle" letter-spacing="2.4">FIELD-FIRST DISCOVERY</text>
+<text x="440" y="70" font-size="27" font-weight="800" fill="#0F0F0E" text-anchor="middle" letter-spacing="-0.5">A loop, not a phase.</text>
+<path d="M 485.14 207.28 A 96 96 0 0 1 524.72 246.86" fill="none" stroke="#0F0F0E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="524.72,246.86 524.51,238.47 517.89,242" fill="#0F0F0E"/>
+<path d="M 524.72 337.14 A 96 96 0 0 1 485.14 376.72" fill="none" stroke="#0F0F0E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="485.14,376.72 493.53,376.51 490,369.89" fill="#0F0F0E"/>
+<path d="M 394.86 376.72 A 96 96 0 0 1 355.28 337.14" fill="none" stroke="#0F0F0E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="355.28,337.14 355.49,345.53 362.11,342" fill="#0F0F0E"/>
+<path d="M 355.28 246.86 A 96 96 0 0 1 394.86 207.28" fill="none" stroke="#0F0F0E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="394.86,207.28 386.47,207.49 390,214.11" fill="#0F0F0E"/>
+<circle cx="440" cy="196" r="38" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.5"/>
+<g transform="translate(440,191)">
+<path d="M -13 0 Q 0 -9.5 13 0 Q 0 9.5 -13 0 Z" fill="none" stroke="#0F0F0E" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="0" cy="0" r="3.2" fill="#0F0F0E"/>
+</g>
+<text x="440" y="220" font-size="9.5" font-weight="700" fill="#75756E" text-anchor="middle" letter-spacing="1.4">01</text>
+<text x="440" y="116" font-size="16" font-weight="700" fill="#0F0F0E" text-anchor="middle">Observe</text>
+<text x="440" y="135" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle">Half a day on the floor with a notebook.</text>
+<text x="440" y="149" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle">No leading questions, no prototypes.</text>
+<circle cx="536" cy="292" r="38" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.5"/>
+<g transform="translate(536,287)">
+<rect x="-13" y="-11" width="10" height="7.5" rx="1.5" fill="none" stroke="#0F0F0E" stroke-width="1.3"/>
+<rect x="3" y="-11" width="10" height="7.5" rx="1.5" fill="none" stroke="#0F0F0E" stroke-width="1.3"/>
+<rect x="-5" y="4" width="10" height="7.5" rx="1.5" fill="none" stroke="#0F0F0E" stroke-width="1.3"/>
+<path d="M -8 -3.5 L -8 0 L 0 0 L 0 4" fill="none" stroke="#0F0F0E" stroke-width="1.3" stroke-linejoin="round"/>
+<path d="M 8 -3.5 L 8 0 L 0 0" fill="none" stroke="#0F0F0E" stroke-width="1.3" stroke-linejoin="round"/>
+</g>
+<text x="536" y="316" font-size="9.5" font-weight="700" fill="#75756E" text-anchor="middle" letter-spacing="1.4">02</text>
+<text x="594" y="279" font-size="16" font-weight="700" fill="#0F0F0E">Map</text>
+<text x="594" y="296" font-size="10.5" font-weight="400" fill="#75756E">Receive, weigh, rack, pick, dispatch,</text>
+<text x="594" y="310" font-size="10.5" font-weight="400" fill="#75756E">invoice — then mark every break.</text>
+<circle cx="440" cy="388" r="38" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.5"/>
+<g transform="translate(440,383)">
+<line x1="0" y1="-13" x2="0" y2="1" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M -5 -4 L 0 1.5 L 5 -4" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M -10 4 V 10 H 10 V 4" fill="none" stroke="#0F0F0E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="440" y="412" font-size="9.5" font-weight="700" fill="#75756E" text-anchor="middle" letter-spacing="1.4">03</text>
+<text x="440" y="452" font-size="16" font-weight="700" fill="#0F0F0E" text-anchor="middle">Borrow</text>
+<text x="440" y="469" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle">Organised-retail logistics, aggregator</text>
+<text x="440" y="483" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle">B2B platforms, warehouse management.</text>
+<circle cx="344" cy="292" r="38" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.5"/>
+<g transform="translate(344,287)">
+<path d="M -7.5 0.5 L -2 6.5 L 8 -6" fill="none" stroke="#0F0F0E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="344" y="316" font-size="9.5" font-weight="700" fill="#75756E" text-anchor="middle" letter-spacing="1.4">04</text>
+<text x="286" y="279" font-size="16" font-weight="700" fill="#0F0F0E" text-anchor="end">Validate</text>
+<text x="286" y="296" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="end">Take lo-fi back to the same workers.</text>
+<text x="286" y="310" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="end">Watch what they tap, skip, ask about.</text>
+<text x="440" y="288" font-size="9" font-weight="700" fill="#75756E" text-anchor="middle" letter-spacing="1.2">REPEAT FOR</text>
+<text x="440" y="301" font-size="9" font-weight="700" fill="#75756E" text-anchor="middle" letter-spacing="1.2">EVERY FEATURE</text>
+<text x="440" y="522" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle" font-style="italic">Three field visits before a single frame — most of the real decisions were made on the godown floor, not in Figma.</text>
+</svg>

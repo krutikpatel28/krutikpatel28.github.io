@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="620" viewBox="0 0 880 620" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif" text-rendering="geometricPrecision">
+<rect x="0" y="0" width="880" height="620" rx="18" fill="#F7F7F5"/>
+<text x="440" y="42" font-size="10.5" font-weight="600" fill="#75756E" text-anchor="middle" letter-spacing="2.4">CALLOUSED-HANDS PRINCIPLES</text>
+<text x="440" y="80" font-size="27" font-weight="800" fill="#0F0F0E" text-anchor="middle" letter-spacing="-0.5">Six rules for the godown floor.</text>
+<rect x="64" y="118" width="236" height="213" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<g transform="translate(84,142)">
+<path d="M 0 3 H 27 Q 31 3 31 7 V 21 Q 31 25 27 25 H 11 L 4 31 V 25 Q 0 25 0 21 Z" fill="none" stroke="#0F0F0E" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="15.5" y="19" font-size="13" font-weight="700" fill="#0F0F0E" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Mangal', Inter, system-ui, sans-serif">अ</text>
+</g>
+<text x="280" y="156" font-size="10" font-weight="700" fill="#75756E" text-anchor="end" letter-spacing="1.4">01</text>
+<line x1="84" y1="194" x2="280" y2="194" stroke="#E3E3DE" stroke-width="1"/>
+<text x="84" y="230" font-size="16.5" font-weight="700" fill="#0F0F0E">Language first,</text>
+<text x="84" y="251" font-size="16.5" font-weight="700" fill="#0F0F0E">English second.</text>
+<text x="84" y="284" font-size="10.5" font-weight="400" fill="#75756E">Default UI ships in the regional</text>
+<text x="84" y="298.5" font-size="10.5" font-weight="400" fill="#75756E">script. English is a toggle.</text>
+<rect x="322" y="118" width="236" height="213" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<g transform="translate(342,142)">
+<line x1="16" y1="4" x2="16" y2="27" stroke="#0F0F0E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="4" y1="10" x2="28" y2="10" stroke="#0F0F0E" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M 4 10 L 0.5 22 H 9.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M 28 10 L 24.5 22 H 33.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="9" y1="28" x2="23" y2="28" stroke="#0F0F0E" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="16" cy="6" r="2.4" fill="#0F0F0E"/>
+</g>
+<text x="538" y="156" font-size="10" font-weight="700" fill="#75756E" text-anchor="end" letter-spacing="1.4">02</text>
+<line x1="342" y1="194" x2="538" y2="194" stroke="#E3E3DE" stroke-width="1"/>
+<text x="342" y="230" font-size="16.5" font-weight="700" fill="#0F0F0E">Weight is the unit,</text>
+<text x="342" y="251" font-size="16.5" font-weight="700" fill="#0F0F0E">not packs.</text>
+<text x="342" y="284" font-size="10.5" font-weight="400" fill="#75756E">Kilograms lead, pack count</text>
+<text x="342" y="298.5" font-size="10.5" font-weight="400" fill="#75756E">follows as metadata.</text>
+<rect x="580" y="118" width="236" height="213" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<g transform="translate(600,142)">
+<circle cx="16" cy="16" r="14" fill="none" stroke="#0F0F0E" stroke-width="1.5"/>
+<circle cx="16" cy="16" r="8" fill="none" stroke="#CFCFC8" stroke-width="1.2"/>
+<circle cx="16" cy="16" r="3.4" fill="#0F0F0E"/>
+</g>
+<text x="796" y="156" font-size="10" font-weight="700" fill="#75756E" text-anchor="end" letter-spacing="1.4">03</text>
+<line x1="600" y1="194" x2="796" y2="194" stroke="#E3E3DE" stroke-width="1"/>
+<text x="600" y="230" font-size="16.5" font-weight="700" fill="#0F0F0E">Big targets.</text>
+<text x="600" y="251" font-size="16.5" font-weight="700" fill="#0F0F0E">Fat fingers.</text>
+<text x="600" y="284" font-size="10.5" font-weight="400" fill="#75756E">56 px minimum tap. Spacing</text>
+<text x="600" y="298.5" font-size="10.5" font-weight="400" fill="#75756E">wins over density.</text>
+<rect x="64" y="353" width="236" height="213" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<g transform="translate(84,377)">
+<rect x="0" y="2" width="27" height="13" rx="6.5" fill="#FAE8E3" stroke="#C8452A" stroke-width="1.2"/>
+<circle cx="6.5" cy="8.5" r="2.4" fill="#C8452A"/>
+<rect x="0" y="22" width="30" height="3.5" rx="1.75" fill="#CFCFC8"/>
+<rect x="0" y="29" width="19" height="3.5" rx="1.75" fill="#CFCFC8"/>
+</g>
+<text x="280" y="391" font-size="10" font-weight="700" fill="#75756E" text-anchor="end" letter-spacing="1.4">04</text>
+<line x1="84" y1="429" x2="280" y2="429" stroke="#E3E3DE" stroke-width="1"/>
+<text x="84" y="465" font-size="16.5" font-weight="700" fill="#0F0F0E">Status before</text>
+<text x="84" y="486" font-size="16.5" font-weight="700" fill="#0F0F0E">everything.</text>
+<text x="84" y="519" font-size="10.5" font-weight="400" fill="#75756E">Workers think in state, not</text>
+<text x="84" y="533.5" font-size="10.5" font-weight="400" fill="#75756E">identifier. Pill on top.</text>
+<rect x="322" y="353" width="236" height="213" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<g transform="translate(342,377)">
+<rect x="0" y="12" width="16" height="16" rx="2" fill="#0F0F0E"/>
+<rect x="20" y="18" width="10" height="10" rx="2" fill="#75756E"/>
+<rect x="0" y="4" width="16" height="4" rx="2" fill="#CFCFC8"/>
+</g>
+<text x="538" y="391" font-size="10" font-weight="700" fill="#75756E" text-anchor="end" letter-spacing="1.4">05</text>
+<line x1="342" y1="429" x2="538" y2="429" stroke="#E3E3DE" stroke-width="1"/>
+<text x="342" y="465" font-size="16.5" font-weight="700" fill="#0F0F0E">Glanceable</text>
+<text x="342" y="486" font-size="16.5" font-weight="700" fill="#0F0F0E">hierarchy.</text>
+<text x="342" y="519" font-size="10.5" font-weight="400" fill="#75756E">Read like a road sign — one</text>
+<text x="342" y="533.5" font-size="10.5" font-weight="400" fill="#75756E">headline, one number, one tap.</text>
+<rect x="580" y="353" width="236" height="213" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<g transform="translate(600,377)">
+<path d="M 26.33 18.91 A 11.0 11.0 0 1 0 4.67 15.09" fill="none" stroke="#0F0F0E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="4.67,15.09 9.33,8.8 2.44,7.59" fill="#0F0F0E"/>
+</g>
+<text x="796" y="391" font-size="10" font-weight="700" fill="#75756E" text-anchor="end" letter-spacing="1.4">06</text>
+<line x1="600" y1="429" x2="796" y2="429" stroke="#E3E3DE" stroke-width="1"/>
+<text x="600" y="465" font-size="16.5" font-weight="700" fill="#0F0F0E">Forgive the</text>
+<text x="600" y="486" font-size="16.5" font-weight="700" fill="#0F0F0E">mistake.</text>
+<text x="600" y="519" font-size="10.5" font-weight="400" fill="#75756E">Every destructive action gets a</text>
+<text x="600" y="533.5" font-size="10.5" font-weight="400" fill="#75756E">recovery path, not a modal.</text>
+<text x="440" y="596" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle" font-style="italic">These carry the Worker View — the surface that decides whether the data downstream is real or fiction.</text>
+</svg>

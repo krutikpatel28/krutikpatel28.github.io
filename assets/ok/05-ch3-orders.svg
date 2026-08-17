@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="560" viewBox="0 0 880 560" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif" text-rendering="geometricPrecision">
+<rect x="0" y="0" width="880" height="560" rx="18" fill="#F7F7F5"/>
+<text x="440" y="42" font-size="10.5" font-weight="600" fill="#75756E" text-anchor="middle" letter-spacing="2.4">ORDERS LIVE ON WHATSAPP</text>
+<text x="440" y="76" font-size="27" font-weight="800" fill="#0F0F0E" text-anchor="middle" letter-spacing="-0.5">Status replaces messages.</text>
+<text x="64" y="106" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">BEFORE · THE WHATSAPP THREAD</text>
+<rect x="64" y="122" width="330" height="366" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<rect x="64.5" y="166" width="329" height="270" fill="#F1F1ED"/>
+<line x1="64" y1="166" x2="394" y2="166" stroke="#E3E3DE" stroke-width="1"/>
+<circle cx="93" cy="144" r="13" fill="#F1F1ED" stroke="#CFCFC8" stroke-width="1"/>
+<text x="93" y="148" font-size="11.5" font-weight="700" fill="#75756E" text-anchor="middle">S</text>
+<text x="116" y="140" font-size="11.5" font-weight="700" fill="#0F0F0E">Shanti Kirana</text>
+<text x="116" y="154" font-size="8.5" font-weight="400" fill="#75756E">online · order thread</text>
+<rect x="80" y="178" width="147.34" height="40" rx="9" fill="#FFFFFF" stroke="#CFCFC8" stroke-width="1"/>
+<text x="91" y="196" font-size="9.5" font-weight="500" fill="#0F0F0E">bhaiya 50 kg atta bhej dena</text>
+<text x="91" y="209" font-size="8.5" font-weight="400" fill="#75756E">8:42 AM</text>
+<rect x="240.7" y="226" width="137.3" height="40" rx="9" fill="#0F0F0E"/>
+<text x="251.7" y="244" font-size="9.5" font-weight="500" fill="#FFFFFF">kaunsa brand? rate batao</text>
+<text x="251.7" y="257" font-size="8.5" font-weight="400" fill="#B9B9B2">8:43 AM</text>
+<rect x="80" y="274" width="118.58" height="53" rx="9" fill="#FFFFFF" stroke="#CFCFC8" stroke-width="1"/>
+<text x="91" y="292" font-size="9.5" font-weight="500" fill="#0F0F0E">jo bhi ho — 10 kg</text>
+<text x="91" y="305" font-size="9.5" font-weight="500" fill="#0F0F0E">toor bhi add kar dena</text>
+<text x="91" y="318" font-size="8.5" font-weight="400" fill="#75756E">8:45 AM</text>
+<rect x="232.28" y="335" width="145.72" height="40" rx="9" fill="#0F0F0E"/>
+<text x="243.28" y="353" font-size="9.5" font-weight="500" fill="#FFFFFF">sham tak delivery ho jayegi</text>
+<text x="243.28" y="366" font-size="8.5" font-weight="400" fill="#B9B9B2">9:02 AM</text>
+<rect x="80" y="383" width="162.74" height="40" rx="9" fill="#FFFFFF" stroke="#CFCFC8" stroke-width="1"/>
+<text x="91" y="401" font-size="9.5" font-weight="500" fill="#0F0F0E">bill bhi WhatsApp pe bhej dena</text>
+<text x="91" y="414" font-size="8.5" font-weight="400" fill="#75756E">9:08 AM</text>
+<line x1="64" y1="436" x2="394" y2="436" stroke="#E3E3DE" stroke-width="1"/>
+<text x="80" y="461" font-size="10.5" font-weight="600" fill="#3D3D3A">5 messages · 26 min</text>
+<g transform="translate(302.46,447)">
+<rect x="0" y="0" width="75.54" height="20" rx="10" fill="#FAE8E3" stroke="#EFC8BC" stroke-width="1"/>
+<text x="37.77" y="13.02" font-size="8.5" font-weight="700" fill="#C8452A" text-anchor="middle" letter-spacing="0.8">NO RECORD</text>
+</g>
+<text x="440" y="297" font-size="8.5" font-weight="700" fill="#75756E" text-anchor="middle" letter-spacing="1.4">BECOMES</text>
+<line x1="404" y1="315" x2="468" y2="315" stroke="#0F0F0E" stroke-width="1.4" stroke-dasharray="2 4"/>
+<polygon points="476,315 468.5,311.25 468.5,318.75" fill="#0F0F0E"/>
+<text x="486" y="106" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">AFTER · THE CUSTOMER APP</text>
+<rect x="486" y="122" width="330" height="366" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<line x1="486" y1="166" x2="816" y2="166" stroke="#E3E3DE" stroke-width="1"/>
+<text x="502" y="140" font-size="11.5" font-weight="700" fill="#0F0F0E">Order #522</text>
+<text x="502" y="154" font-size="8.5" font-weight="400" fill="#75756E">29 Apr · Shanti Kirana</text>
+<g transform="translate(687.81,134)">
+<rect x="0" y="0" width="112.19" height="20" rx="10" fill="#E6EDFB" stroke="#C2D2F2" stroke-width="1"/>
+<text x="56.09" y="13.02" font-size="8.5" font-weight="700" fill="#2A5FBF" text-anchor="middle" letter-spacing="0.8">OUT FOR DELIVERY</text>
+</g>
+<text x="502" y="184" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">ORDER TOTAL</text>
+<text x="500.21" y="218" font-size="30.41" font-weight="800" fill="#0F0F0E" font-family="'Noto Sans Devanagari', 'Mangal', Inter, system-ui, sans-serif">₹</text>
+<text x="519.78" y="218" font-size="26" font-weight="800" fill="#0F0F0E" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif">4,720</text>
+<text x="502" y="236" font-size="9.5" font-weight="400" fill="#75756E">12 items · 62 kg · regular slot</text>
+<line x1="502" y1="250" x2="800" y2="250" stroke="#E3E3DE" stroke-width="1"/>
+<text x="502" y="272" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">STATUS</text>
+<circle cx="509" cy="294" r="5.5" fill="#0F0F0E"/>
+<text x="529" y="297.7" font-size="10.5" font-weight="700" fill="#0F0F0E">Order placed</text>
+<text x="529" y="310.5" font-size="8.5" font-weight="400" fill="#75756E">29 Apr, 8:41 AM</text>
+<line x1="509" y1="303" x2="509" y2="321" stroke="#0F0F0E" stroke-width="1.3"/>
+<circle cx="509" cy="330" r="5.5" fill="#0F0F0E"/>
+<text x="529" y="333.7" font-size="10.5" font-weight="700" fill="#0F0F0E">Confirmed</text>
+<text x="529" y="346.5" font-size="8.5" font-weight="400" fill="#75756E">8:42 AM · automatic</text>
+<line x1="509" y1="339" x2="509" y2="357" stroke="#0F0F0E" stroke-width="1.3"/>
+<circle cx="509" cy="366" r="5.5" fill="#0F0F0E"/>
+<text x="529" y="369.7" font-size="10.5" font-weight="700" fill="#0F0F0E">Out for delivery</text>
+<text x="529" y="382.5" font-size="8.5" font-weight="400" fill="#75756E">ETA 6:30 PM today</text>
+<line x1="509" y1="375" x2="509" y2="391" stroke="#CFCFC8" stroke-width="1.3" stroke-dasharray="2 3"/>
+<circle cx="509" cy="402" r="5.5" fill="#FFFFFF" stroke="#CFCFC8" stroke-width="1.6"/>
+<text x="529" y="405.7" font-size="10.5" font-weight="700" fill="#75756E">Delivered</text>
+<text x="529" y="418.5" font-size="8.5" font-weight="400" fill="#75756E">pending</text>
+<line x1="486" y1="436" x2="816" y2="436" stroke="#E3E3DE" stroke-width="1"/>
+<text x="502" y="461" font-size="10.5" font-weight="600" fill="#3D3D3A">1 flow · under 2 min</text>
+<g transform="translate(719.63,447)">
+<rect x="0" y="0" width="80.37" height="20" rx="10" fill="#E2F1E9" stroke="#BCDDCB" stroke-width="1"/>
+<text x="40.19" y="13.02" font-size="8.5" font-weight="700" fill="#217A52" text-anchor="middle" letter-spacing="0.8">AUDIT TRAIL</text>
+</g>
+<text x="440" y="530" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle" font-style="italic">One flow now carries the order, the edits and the delivery slot — so the morning pick list writes itself.</text>
+</svg>

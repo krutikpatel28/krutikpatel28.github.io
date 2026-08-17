@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="720" viewBox="0 0 880 720" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif" text-rendering="geometricPrecision">
+<rect x="0" y="0" width="880" height="720" rx="18" fill="#F7F7F5"/>
+<text x="440" y="42" font-size="10.5" font-weight="600" fill="#75756E" text-anchor="middle" letter-spacing="2.4">VISUAL LANGUAGE</text>
+<text x="440" y="80" font-size="27" font-weight="800" fill="#0F0F0E" text-anchor="middle" letter-spacing="-0.5">Legibility before personality.</text>
+<rect x="64" y="118" width="365" height="262" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="86" y="150" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">TYPOGRAPHY · INTER</text>
+<text x="86" y="236" font-size="86" font-weight="800" fill="#0F0F0E" letter-spacing="-3">Aa</text>
+<line x1="216" y1="164" x2="216" y2="256" stroke="#E3E3DE" stroke-width="1"/>
+<text x="240" y="186" font-size="22" font-weight="400" fill="#0F0F0E">Aa</text>
+<text x="278" y="186" font-size="9.5" font-weight="500" fill="#75756E">Regular · 400</text>
+<text x="240" y="219" font-size="22" font-weight="600" fill="#0F0F0E">Aa</text>
+<text x="278" y="219" font-size="9.5" font-weight="500" fill="#75756E">Semibold · 600</text>
+<text x="240" y="252" font-size="22" font-weight="800" fill="#0F0F0E">Aa</text>
+<text x="278" y="252" font-size="9.5" font-weight="500" fill="#75756E">Bold · 800</text>
+<line x1="86" y1="274" x2="407" y2="274" stroke="#E3E3DE" stroke-width="1"/>
+<text x="86" y="296" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">TABULAR NUMERALS</text>
+<text x="86" y="326" font-size="23" font-weight="700" fill="#0F0F0E" letter-spacing="0.4">1234567890</text>
+<text x="86" y="342" font-size="10" font-weight="400" fill="#75756E">Weights and money, right-aligned and column-safe.</text>
+<rect x="451" y="118" width="365" height="262" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="473" y="150" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">STATUS PALETTE</text>
+<rect x="473" y="168" width="20" height="20" rx="5" fill="#C8452A"/>
+<rect x="503" y="168" width="59.19" height="20" rx="10" fill="#FAE8E3" stroke="#EFC8BC" stroke-width="1"/>
+<text x="532.59" y="181.19" font-size="9" font-weight="700" fill="#C8452A" text-anchor="middle" letter-spacing="0.6">URGENT</text>
+<text x="794" y="182" font-size="9" font-weight="600" fill="#75756E" text-anchor="end" letter-spacing="0.4">#C8452A</text>
+<rect x="473" y="199" width="20" height="20" rx="5" fill="#B77410"/>
+<rect x="503" y="199" width="67.17" height="20" rx="10" fill="#FBF0DC" stroke="#EFD6A8" stroke-width="1"/>
+<text x="536.58" y="212.19" font-size="9" font-weight="700" fill="#B77410" text-anchor="middle" letter-spacing="0.6">WARNING</text>
+<text x="794" y="213" font-size="9" font-weight="600" fill="#75756E" text-anchor="end" letter-spacing="0.4">#B77410</text>
+<rect x="473" y="230" width="20" height="20" rx="5" fill="#2A5FBF"/>
+<rect x="503" y="230" width="84.71" height="20" rx="10" fill="#E6EDFB" stroke="#C2D2F2" stroke-width="1"/>
+<text x="545.36" y="243.19" font-size="9" font-weight="700" fill="#2A5FBF" text-anchor="middle" letter-spacing="0.6">IN PROGRESS</text>
+<text x="794" y="244" font-size="9" font-weight="600" fill="#75756E" text-anchor="end" letter-spacing="0.4">#2A5FBF</text>
+<rect x="473" y="261" width="20" height="20" rx="5" fill="#217A52"/>
+<rect x="503" y="261" width="52.17" height="20" rx="10" fill="#E2F1E9" stroke="#BCDDCB" stroke-width="1"/>
+<text x="529.09" y="274.19" font-size="9" font-weight="700" fill="#217A52" text-anchor="middle" letter-spacing="0.6">READY</text>
+<text x="794" y="275" font-size="9" font-weight="600" fill="#75756E" text-anchor="end" letter-spacing="0.4">#217A52</text>
+<rect x="473" y="292" width="20" height="20" rx="5" fill="#6E6E66"/>
+<rect x="503" y="292" width="46.16" height="20" rx="10" fill="#ECECE7" stroke="#D6D6CF" stroke-width="1"/>
+<text x="526.08" y="305.19" font-size="9" font-weight="700" fill="#6E6E66" text-anchor="middle" letter-spacing="0.6">DONE</text>
+<text x="794" y="306" font-size="9" font-weight="600" fill="#75756E" text-anchor="end" letter-spacing="0.4">#6E6E66</text>
+<line x1="473" y1="322" x2="794" y2="322" stroke="#E3E3DE" stroke-width="1"/>
+<text x="473" y="342" font-size="10" font-weight="400" fill="#75756E">Colour never carries status alone — every chip pairs a hue</text>
+<text x="473" y="356" font-size="10" font-weight="400" fill="#75756E">with a word, so it survives glare, dust and colour-blindness.</text>
+<rect x="64" y="402" width="365" height="262" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="86" y="434" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">ICONOGRAPHY</text>
+<text x="86" y="458" font-size="9" font-weight="700" fill="#75756E" letter-spacing="1">24 px</text>
+<g transform="translate(86,470) scale(1.0000)">
+<path d="M 2.5 6.5 H 21.5 V 20 H 2.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="2.5" y1="10.5" x2="21.5" y2="10.5" stroke="#0F0F0E" stroke-width="1.6"/>
+<line x1="12" y1="6.5" x2="12" y2="10.5" stroke="#0F0F0E" stroke-width="1.6"/>
+</g>
+<g transform="translate(124,470) scale(1.0000)">
+<path d="M 2.8 20.5 L 6.2 9 H 17.8 L 21.2 20.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M 6.2 9 Q 7.2 4.6 12 4.6 Q 16.8 4.6 17.8 9" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+</g>
+<g transform="translate(162,470) scale(1.0000)">
+<path d="M 2 8 H 13.5 V 17 H 2 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M 13.5 11 H 18 L 21.5 14.2 V 17 H 13.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="6.5" cy="19.4" r="2.1" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.6"/>
+<circle cx="17" cy="19.4" r="2.1" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.6"/>
+</g>
+<g transform="translate(200,470) scale(1.0000)">
+<path d="M 4 12.5 L 9.5 18 L 20 6" fill="none" stroke="#0F0F0E" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(238,470) scale(1.0000)">
+<circle cx="12" cy="12" r="9.4" fill="none" stroke="#0F0F0E" stroke-width="1.6"/>
+<path d="M 12 6.4 V 12.4 L 16.2 14.6" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(276,470) scale(1.0000)">
+<line x1="12" y1="5" x2="12" y2="19.5" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="4" y1="8.5" x2="20" y2="8.5" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M 4 8.5 L 1.6 16 H 6.4 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M 20 8.5 L 17.6 16 H 22.4 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="8.5" y1="20" x2="15.5" y2="20" stroke="#0F0F0E" stroke-width="2" stroke-linecap="round"/>
+</g>
+<g transform="translate(314,470) scale(1.0000)">
+<path d="M 12 3.4 L 21.8 20.4 H 2.2 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="12" y1="9.6" x2="12" y2="14.2" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="12" cy="17.4" r="1.05" fill="#0F0F0E"/>
+</g>
+<g transform="translate(352,470) scale(1.0000)">
+<circle cx="9.8" cy="9.8" r="7.3" fill="none" stroke="#0F0F0E" stroke-width="1.6"/>
+<line x1="15" y1="15" x2="21.4" y2="21.4" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round"/>
+</g>
+<text x="86" y="530" font-size="9" font-weight="700" fill="#75756E" letter-spacing="1">32 px</text>
+<g transform="translate(86,542) scale(1.3333)">
+<path d="M 2.5 6.5 H 21.5 V 20 H 2.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="2.5" y1="10.5" x2="21.5" y2="10.5" stroke="#0F0F0E" stroke-width="1.6"/>
+<line x1="12" y1="6.5" x2="12" y2="10.5" stroke="#0F0F0E" stroke-width="1.6"/>
+</g>
+<g transform="translate(142,542) scale(1.3333)">
+<path d="M 2.8 20.5 L 6.2 9 H 17.8 L 21.2 20.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M 6.2 9 Q 7.2 4.6 12 4.6 Q 16.8 4.6 17.8 9" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+</g>
+<g transform="translate(198,542) scale(1.3333)">
+<path d="M 2 8 H 13.5 V 17 H 2 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M 13.5 11 H 18 L 21.5 14.2 V 17 H 13.5 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="6.5" cy="19.4" r="2.1" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.6"/>
+<circle cx="17" cy="19.4" r="2.1" fill="#FFFFFF" stroke="#0F0F0E" stroke-width="1.6"/>
+</g>
+<g transform="translate(254,542) scale(1.3333)">
+<path d="M 4 12.5 L 9.5 18 L 20 6" fill="none" stroke="#0F0F0E" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(310,542) scale(1.3333)">
+<circle cx="12" cy="12" r="9.4" fill="none" stroke="#0F0F0E" stroke-width="1.6"/>
+<path d="M 12 6.4 V 12.4 L 16.2 14.6" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(366,542) scale(1.3333)">
+<line x1="12" y1="5" x2="12" y2="19.5" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="4" y1="8.5" x2="20" y2="8.5" stroke="#0F0F0E" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M 4 8.5 L 1.6 16 H 6.4 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M 20 8.5 L 17.6 16 H 22.4 Z" fill="none" stroke="#0F0F0E" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="8.5" y1="20" x2="15.5" y2="20" stroke="#0F0F0E" stroke-width="2" stroke-linecap="round"/>
+</g>
+<line x1="86" y1="606" x2="407" y2="606" stroke="#E3E3DE" stroke-width="1"/>
+<text x="86" y="626" font-size="10" font-weight="400" fill="#75756E">One geometry at two optical sizes — 24 px on the console,</text>
+<text x="86" y="640" font-size="10" font-weight="400" fill="#75756E">32 px on the floor. Every status icon ships paired with text.</text>
+<rect x="451" y="402" width="365" height="262" rx="12" fill="#FFFFFF" stroke="#E3E3DE" stroke-width="1"/>
+<text x="473" y="434" font-size="9.5" font-weight="700" fill="#75756E" letter-spacing="1.6">MULTILINGUAL SCAFFOLDING</text>
+<text x="473" y="452" font-size="9" font-weight="700" fill="#75756E" letter-spacing="1">EN · 200 px</text>
+<rect x="473" y="460" width="200" height="58" rx="8" fill="#F7F7F5" stroke="#CFCFC8" stroke-width="1"/>
+<rect x="483" y="469" width="20" height="20" rx="4" fill="#EAEAE5" stroke="#CFCFC8" stroke-width="0.8"/>
+<text x="511" y="480" font-size="10" font-weight="700" fill="#0F0F0E" font-family="Inter, 'Inter var', system-ui, -apple-system, Helvetica, Arial, sans-serif">Wheat Flour</text>
+<text x="511" y="492" font-size="8.5" font-weight="400" fill="#75756E">200 g · sachet</text>
+<rect x="483" y="498" width="51.01" height="15" rx="7.5" fill="#FAE8E3" stroke="#EFC8BC" stroke-width="1"/>
+<text x="508.51" y="508.34" font-size="8" font-weight="700" fill="#C8452A" text-anchor="middle" letter-spacing="0.6">URGENT</text>
+<rect x="641" y="479" width="24.07" height="20" rx="10" fill="#0F0F0E"/>
+<text x="653.03" y="492.9" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.6">+</text>
+<text x="473" y="538" font-size="9" font-weight="700" fill="#75756E" letter-spacing="1">HI · 280 px (×1.4)</text>
+<rect x="473" y="546" width="280" height="58" rx="8" fill="#F7F7F5" stroke="#CFCFC8" stroke-width="1"/>
+<rect x="483" y="555" width="20" height="20" rx="4" fill="#EAEAE5" stroke="#CFCFC8" stroke-width="0.8"/>
+<text x="511" y="566" font-size="10" font-weight="700" fill="#0F0F0E" font-family="'Noto Sans Devanagari', 'Mangal', Inter, system-ui, sans-serif">गेहूं का आटा</text>
+<text x="511" y="578" font-size="8.5" font-weight="400" fill="#75756E">200 g · sachet</text>
+<rect x="483" y="584" width="42.42" height="15" rx="7.5" fill="#FAE8E3" stroke="#EFC8BC" stroke-width="1"/>
+<text x="504.21" y="594.34" font-size="8" font-weight="700" fill="#C8452A" text-anchor="middle" letter-spacing="0.6" font-family="'Noto Sans Devanagari', 'Mangal', Inter, system-ui, sans-serif">तत्काल</text>
+<rect x="721" y="565" width="24.07" height="20" rx="10" fill="#0F0F0E"/>
+<text x="733.03" y="578.9" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.6">+</text>
+<line x1="673" y1="454" x2="673" y2="610" stroke="#CFCFC8" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="681" y="536" font-size="8.5" font-weight="700" fill="#75756E" letter-spacing="0.6">+80 px</text>
+<text x="473" y="626" font-size="10" font-weight="400" fill="#75756E">Components absorb script length at the layout layer,</text>
+<text x="473" y="640" font-size="10" font-weight="400" fill="#75756E">not the copy layer — reviewed in both scripts during design.</text>
+<text x="440" y="694" font-size="10.5" font-weight="400" fill="#75756E" text-anchor="middle" font-style="italic">The result is deliberately plain — no surface in the system is trying to be interesting.</text>
+</svg>
